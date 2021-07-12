@@ -97,24 +97,46 @@ public class CarServiceParametrizedTests {
         //Assertions.assertEquals(result, false);
         Assertions.assertEquals(result,expectedResult);
     }
-    
+
+    private static Stream<Object[][]> dataFromTable()
+    {
+        return Stream.of(
+                Object.of{"1",2}
+        );
+    }
+
     @Test
     public void metodaTestoowa()
     {
         //given
-        List<CarDetails> carDetails = createCarDetails();
+        List<CarDetails> carDetails = createCarDetailsFirstCase();
         CarService service = new CarService();
 
         //when
         List<CarDiagnosticResult> results = service.analyzeCars(carDetails);
 
         //then
-        List<CarDiagnosticResult> expectedResults = createExpectedResults();
+        List<CarDiagnosticResult> expectedResults = createExpectedResultsFirstCase();
+        Assertions.assertEquals(results, expectedResults);
+    }
+
+    @Test
+    public void metodaTestowa()
+    {
+        //given
+        List<CarDetails> carDetails = createCarDetailsFalseCase();
+        CarService service = new CarService();
+
+        //when
+        List<CarDiagnosticResult> results = service.analyzeCars(carDetails);
+
+        //then
+        List<CarDiagnosticResult> expectedResults = createExpectedResultsFalseCase();
         Assertions.assertEquals(results, expectedResults);
     }
 
     //Support Lists
-    List<CarDiagnosticResult> createExpectedResults()
+    List<CarDiagnosticResult> createExpectedResultsFirstCase()
     {
         List<CarDiagnosticResult> results = new ArrayList<>();
         results.add(new CarDiagnosticResult("1", true));
@@ -123,14 +145,39 @@ public class CarServiceParametrizedTests {
         return results;
     }
 
-    private List<CarDetails> createCarDetails()
+    List<CarDiagnosticResult> createExpectedResultsFalseCase()
+    {
+        List<CarDiagnosticResult> results = new ArrayList<>();
+        results.add(new CarDiagnosticResult("1", false));
+        results.add(new CarDiagnosticResult("2", false));
+        results.add(new CarDiagnosticResult("3", false));
+        results.add(new CarDiagnosticResult("4", false));
+        results.add(new CarDiagnosticResult("5", false));
+        results.add(new CarDiagnosticResult("6", false));
+        return results;
+    }
+
+    private List<CarDetails> createCarDetailsFirstCase()
     {
         List<CarDetails> carsDetails = new ArrayList<>();
         carsDetails.add(createCarDetails("1",3,3,3));
-        carsDetails.add(createCarDetails("2",3,5000,3));
-        carsDetails.add(createCarDetails("3",1,15,10000000));
+        carsDetails.add(createCarDetails("2",3,30000000,3));
+        carsDetails.add(createCarDetails("3",3,3,3));
         return carsDetails;
     }
+
+    private List<CarDetails> createCarDetailsFalseCase()
+    {
+        List<CarDetails> carsDetails = new ArrayList<>();
+        carsDetails.add(createCarDetails("1",0,3,3));
+        carsDetails.add(createCarDetails("2",0,3,3));
+        carsDetails.add(createCarDetails("3",0,3,3));
+        carsDetails.add(createCarDetails("4",0,3,3));
+        carsDetails.add(createCarDetails("5",0,3,3));
+        carsDetails.add(createCarDetails("6",0,32,3));
+        return carsDetails;
+    }
+
 
     //Support Method for tests verification
     private CarDetails createCarDetails(String id,Integer treadThickness,Integer fuelUsage,Integer carMillage)
