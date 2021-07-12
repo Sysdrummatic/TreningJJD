@@ -97,39 +97,7 @@ public class CarServiceParametrizedTests {
         //Assertions.assertEquals(result, false);
         Assertions.assertEquals(result,expectedResult);
     }
-    /*09*/
-    @Test
-    public void analyzeCarByParams_fuelUsageNotOk_resultFalse() {
-        //given
-        Integer treadThickness = 3;
-        Integer fuelUsage = 15;
-        Integer carMillage = 15000;
-        CarService service = new CarService();
-
-        //when
-        boolean result = service.analyzeCarByParams(treadThickness, fuelUsage, carMillage);
-
-        //then
-        //Assertions.assertEquals(result, false);
-        Assertions.assertFalse(result);
-    }
-    /*10*/
-    @Test
-    public void analyzeCarByParams_treadThicknessNotOk_resultFalse() {
-        //given
-        Integer treadThickness = 0;
-        Integer fuelUsage = 15;
-        Integer carMillage = 15000;
-        CarService service = new CarService();
-
-        //when
-        boolean result = service.analyzeCarByParams(treadThickness, fuelUsage, carMillage);
-
-        //then
-        //Assertions.assertEquals(result, false);
-        Assertions.assertFalse(result);
-    }
-
+    
     @Test
     public void metodaTestoowa()
     {
