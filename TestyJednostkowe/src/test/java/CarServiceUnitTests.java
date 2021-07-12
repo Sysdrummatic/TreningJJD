@@ -15,7 +15,7 @@ public class CarServiceUnitTests {
         CarService service = new CarService();
 
         //when
-        //W tym wypadku puste, nie mamy rezultatu, tylko sprawdzamy czy zostanie wyrzucony wyjątek.
+        //N/A
 
         //then
         Assertions.assertThrows(IllegalArgumentException.class, () -> service.analyzeCarByParams(treadThickness, fuelUsage, carMillage));
@@ -30,7 +30,7 @@ public class CarServiceUnitTests {
         CarService service = new CarService();
 
         //when
-        //W tym wypadku puste, nie mamy rezultatu, tylko sprawdzamy czy zostanie wyrzucony wyjątek.
+        //N/A
 
         //then
         Assertions.assertThrows(IllegalArgumentException.class, () -> service.analyzeCarByParams(treadThickness, fuelUsage, carMillage));
@@ -46,7 +46,7 @@ public class CarServiceUnitTests {
         CarService service = new CarService();
 
         //when
-        //W tym wypadku puste, nie mamy rezultatu, tylko sprawdzamy czy zostanie wyrzucony wyjątek.
+        //N/A
 
         //then
         Assertions.assertThrows(IllegalArgumentException.class, () -> service.analyzeCarByParams(treadThickness, fuelUsage, carMillage));
@@ -65,6 +65,9 @@ public class CarServiceUnitTests {
         Integer carMillage = -12;
         CarService service = new CarService();
 
+        //when
+        //N/A
+
         //then
         Assertions.assertThrows(IllegalArgumentException.class, () -> service.analyzeCarByParams(treadThickness, fuelUsage, carMillage));
     }
@@ -77,6 +80,9 @@ public class CarServiceUnitTests {
         Integer fuelUsage = -15;
         Integer carMillage = 12;
         CarService service = new CarService();
+
+        //when
+        //N/A
 
         //then
         Assertions.assertThrows(IllegalArgumentException.class, () -> service.analyzeCarByParams(treadThickness, fuelUsage, carMillage));
@@ -91,13 +97,16 @@ public class CarServiceUnitTests {
         Integer carMillage = 312;
         CarService service = new CarService();
 
+        //when
+        //N/A
+
         //then
         Assertions.assertThrows(IllegalArgumentException.class, () -> service.analyzeCarByParams(treadThickness, fuelUsage, carMillage));
     }
 
-//ThrowException verification - LessThanZero
+//True/False verification
 
-    /*08*/
+    /*07*/
     @Test
     public void analyzeCarByParams_allValuesOk_resultTrue() {
         //given
@@ -113,7 +122,7 @@ public class CarServiceUnitTests {
         //Assertions.assertEquals(result, true);
         Assertions.assertTrue(result);
     }
-    /*09*/
+    /*08*/
     @Test
     public void analyzeCarByParams_carMillageNotOk_resultFalse() {
         //given
@@ -129,7 +138,7 @@ public class CarServiceUnitTests {
         //Assertions.assertEquals(result, false);
         Assertions.assertFalse(result);
     }
-    /*10*/
+    /*09*/
     @Test
     public void analyzeCarByParams_fuelUsageNotOk_resultFalse() {
         //given
@@ -145,7 +154,7 @@ public class CarServiceUnitTests {
         //Assertions.assertEquals(result, false);
         Assertions.assertFalse(result);
     }
-    /*11*/
+    /*10*/
     @Test
     public void analyzeCarByParams_treadThicknessNotOk_resultFalse() {
         //given
@@ -163,7 +172,7 @@ public class CarServiceUnitTests {
     }
 
 
-    /*12*/
+    /*11*/ //- Do ewentualnej przeróbki
     @Test
     public void analyzeCarByParams_allValues_resultTrue() {
         //given
