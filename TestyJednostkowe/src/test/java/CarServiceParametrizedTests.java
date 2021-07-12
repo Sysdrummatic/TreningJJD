@@ -4,6 +4,8 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Stream;
 
 public class CarServiceParametrizedTests {
@@ -126,6 +128,52 @@ public class CarServiceParametrizedTests {
         //then
         //Assertions.assertEquals(result, false);
         Assertions.assertFalse(result);
+    }
+
+    @Test
+    public void metodaTestoowa()
+    {
+        //given
+        List<CarDetails> carDetails = createCarDetails();
+        CarService service = new CarService();
+
+        //when
+        List<CarDiagnosticResult> results = service.analyzeCars(carDetails);
+
+        //then
+        List<CarDiagnosticResult> expectedResults = createExpectedResults();
+        Assertions.assertEquals(results, expectedResults);
+    }
+
+    //Support Lists
+    List<CarDiagnosticResult> createExpectedResults()
+    {
+        List<CarDiagnosticResult> results = new ArrayList<>();
+        results.add(new CarDiagnosticResult("1", true));
+        results.add(new CarDiagnosticResult("2", false));
+        results.add(new CarDiagnosticResult("3", true));
+        return results;
+    }
+
+    private List<CarDetails> createCarDetails()
+    {
+        List<CarDetails> carsDetails = new ArrayList<>();
+        carsDetails.add(createCarDetails("1",3,3,3));
+        carsDetails.add(createCarDetails("2",3,5000,3));
+        carsDetails.add(createCarDetails("3",1,15,10000000));
+        return carsDetails;
+    }
+
+    //Support Method for tests verification
+    private CarDetails createCarDetails(String id,Integer treadThickness,Integer fuelUsage,Integer carMillage)
+    {
+        CarDetails carDetails = new CarDetails();
+        carDetails.setId(id);
+        carDetails.setTreadThickness(treadThickness);
+        carDetails.setFuelUsage(fuelUsage);
+        carDetails.setCarMillage(carMillage);
+
+        return carDetails;
     }
 
 }
