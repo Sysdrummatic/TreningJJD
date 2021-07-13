@@ -17,33 +17,16 @@ public class CarServiceParametrizedTestNG {
 
     }
 
-    @Test
-    public void metodaTestoowa()
+    @Test(dataProvider = "dataForParametrizedTest")
+    public void analyzeCars_dataFromDataProvider_resultFromDataProvider(List<CarDetails> carDetails,List<CarDiagnosticResult> expectedResults)
     {
         //given
-        List<CarDetails> carDetails = createCarDetailsFirstCase();
         CarService service = new CarService();
 
         //when
         List<CarDiagnosticResult> results = service.analyzeCars(carDetails);
 
         //then
-        List<CarDiagnosticResult> expectedResults = createExpectedResultsFirstCase();
-        Assert.assertEquals(results, expectedResults);
-    }
-
-    @Test
-    public void metodaTestowa()
-    {
-        //given
-        List<CarDetails> carDetails = createCarDetailsFalseCase();
-        CarService service = new CarService();
-
-        //when
-        List<CarDiagnosticResult> results = service.analyzeCars(carDetails);
-
-        //then
-        List<CarDiagnosticResult> expectedResults = createExpectedResultsFalseCase();
         Assert.assertEquals(results, expectedResults);
     }
 
