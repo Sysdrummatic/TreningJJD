@@ -98,13 +98,6 @@ public class CarServiceParametrizedTests {
         Assertions.assertEquals(result,expectedResult);
     }
 
-    private static Stream<Object[][]> dataFromTable()
-    {
-        return Stream.of(
-                Object.of{"1",2}
-        );
-    }
-
     @Test
     public void metodaTestoowa()
     {
@@ -178,7 +171,6 @@ public class CarServiceParametrizedTests {
         return carsDetails;
     }
 
-
     //Support Method for tests verification
     private CarDetails createCarDetails(String id,Integer treadThickness,Integer fuelUsage,Integer carMillage)
     {
@@ -187,8 +179,6 @@ public class CarServiceParametrizedTests {
         carDetails.setTreadThickness(treadThickness);
         carDetails.setFuelUsage(fuelUsage);
         carDetails.setCarMillage(carMillage);
-
         return carDetails;
     }
-
 }
