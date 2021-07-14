@@ -4,8 +4,7 @@ import org.junit.Test;
 public class RangeTest {
 
     @Test
-    public void checkIsInRange() {
-
+    public void shouldSayThat15IsInRange() {
 
     //given
     long testCaseNumber = 15;
@@ -17,7 +16,6 @@ public class RangeTest {
     boolean result = range.isInRange(testCaseNumber);
 
     //than
-        Assert.assertTrue(result );
-
+        Assert.assertTrue(result);
     }
 }
