@@ -18,4 +18,11 @@ public class RangeTest {
     //than
         Assert.assertTrue(result);
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void shouldThrownIllegalArgumentExceptionOnWrongParameters(){
+        new Range(20,10);
+    }
+
+
 }

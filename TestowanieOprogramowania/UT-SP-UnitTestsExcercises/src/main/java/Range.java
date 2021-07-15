@@ -13,4 +13,5 @@ public class Range {
     public boolean isInRange(long number){
         return number >= lowerBound && number <= upperBound;
     }
+
 }
