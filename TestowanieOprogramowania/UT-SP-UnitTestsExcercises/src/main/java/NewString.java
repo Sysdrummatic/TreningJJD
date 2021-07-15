@@ -16,5 +16,12 @@ public class NewString {
         String text2 = " literal.";
         System.out.println(text1.concat(text2));
 
+        String some = "Some";
+        String space = " ";
+        String random = "random";
+        String string = "string";
+
+        String someString = some + space + random + space + string;
+        System.out.println(someString);
     }
 }
