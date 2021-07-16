@@ -96,8 +96,29 @@ public class FirstCollection {
 
         System.out.println("Iterowanie po zbiorze (foreach)");
         for(String item: sampleSet){
-            System.out.println(sampleSet);
+            System.out.println(item);
         }
 
+        Map<String,String> sampleMap = new HashMap<>();
+        sampleMap.put("Lukasz","Izunia");
+        sampleMap.put("Wojtus","Krzys");
+
+        System.out.println("Iterowanie po wartościach");
+        for(String value: sampleMap.values()) {
+            System.out.println(value);
+        }
+
+        System.out.println("Iterowanie po kluczach i pobieranie watości");
+        for(String key: sampleMap.keySet()) {
+            String value = sampleMap.get(key);
+            System.out.println(key + " " + value);
+        }
+
+        System.out.println("Iterowanie po kluczach i wartościach");
+        for(Map.Entry<String,String> entry : sampleMap.entrySet()){
+            String key = entry.getKey();
+            String value = entry.getValue();
+            System.out.println(key + " " + value);
+        }
     }
 }
