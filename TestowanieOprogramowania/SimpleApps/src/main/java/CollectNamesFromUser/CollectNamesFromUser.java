@@ -23,7 +23,7 @@ public class CollectNamesFromUser {
 
 
         }while(!newUserName.equals(EndOfNames));
-        System.out.println(UserNameList.get(0));
+        System.out.println(UserNameList.size());
 
 
 
