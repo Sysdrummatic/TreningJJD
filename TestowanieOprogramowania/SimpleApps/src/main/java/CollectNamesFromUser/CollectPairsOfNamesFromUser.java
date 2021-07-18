@@ -12,6 +12,7 @@ public class CollectPairsOfNamesFromUser {
 
         String newUserName1;
         String newUserName2;
+        String firstUserName;
         Map<String, String> pairOfUsersName = new HashMap<>();
         Scanner UserName = new Scanner(System.in);
 
@@ -27,6 +28,9 @@ public class CollectPairsOfNamesFromUser {
         }
         while(!newUserName1.equals(END_OF_NAMES));
 
+        System.out.println("Type first user name to display it's pair");
+        firstUserName = UserName.nextLine();
+        System.out.println(pairOfUsersName.get(firstUserName));
     }
 
 }
