@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class CollectPairsOfNamesFromUser {
 
-    public static final String END_OF_NAMES = "-";
+public static final String END_OF_NAMES = "-";
 
     public static void main(String[] args) {
 
@@ -16,21 +16,21 @@ public class CollectPairsOfNamesFromUser {
         Map<String, String> pairOfUsersName = new HashMap<>();
         Scanner UserName = new Scanner(System.in);
 
-        do {
+        while(true)
+        {
             System.out.println("Type first user name:");
             newUserName1 = UserName.nextLine();
+            if(newUserName1.equals(END_OF_NAMES))
+                break;
             System.out.println("Type second user name:");
             newUserName2 = UserName.nextLine();
-            if(!newUserName1.equals(END_OF_NAMES))
-            {
-                pairOfUsersName.put(newUserName1, newUserName2);
-            }
+            if (newUserName2.equals(END_OF_NAMES))
+                break;
+            pairOfUsersName.put(newUserName1, newUserName2);
         }
-        while(!newUserName1.equals(END_OF_NAMES));
-
         System.out.println("Type first user name to display it's pair");
         firstUserName = UserName.nextLine();
-        System.out.println(pairOfUsersName.get(firstUserName));
+        System.out.println("The pair for " + firstUserName + " is " +pairOfUsersName.get(firstUserName));
     }
 
 }
