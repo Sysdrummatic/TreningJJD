@@ -30,7 +30,7 @@ public class CollectPairsOfNamesFromUser {
 
         System.out.println("Type first user name to display it's pair");
         firstUserName = UserName.nextLine();
-        System.out.println(pairOfUsersName.get(firstUserName));
+        System.out.println("The pair for " + firstUserName + " is " +pairOfUsersName.get(firstUserName));
     }
 
 }
