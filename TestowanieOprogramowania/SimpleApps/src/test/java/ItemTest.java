@@ -6,20 +6,28 @@ import org.junit.Test;
 public class ItemTest {
 
     private Item product;
-    private String name;
-    private double price;
+    private String correctName;
+    private String wrongName;
+    private double floatPrice;
+    private double integerPrice;
+    private double zeroPrice;
+    private double nullPrice;
 
     @Before
-    public void setUpDataForConstructor(){
+    public void setUpData(){
         //given
-        name = "Produkt 1";
-        price = 1.59;
-        product = new Item(name, price);
+        correctName = "Produkt 1";
+        wrongName = null;
+        integerPrice = 2;
+        floatPrice = 1.59;
+        zeroPrice = 0;
+        product = new Item(correctName, floatPrice);
+
     }
 
     @Test
     public void shouldReturnTheName(){
-        Assert.assertEquals(product.getName(), name);
+        Assert.assertEquals(product.getName(), correctName);
     }
 
     @Test
@@ -28,5 +36,15 @@ public class ItemTest {
         Assert.assertEquals(product.getPrice(),1.59,0);
         //Assert.assertTrue(product.getName().equals(price));
     }
+    @Test(expected = IllegalArgumentException.class)
+    public void throwErrorForValuesLessOrEqual0(){
 
+        new Item(correctName,zeroPrice);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void throwErrorForNullValuedName(){
+
+        new Item(wrongName,floatPrice);
+    }
 }
