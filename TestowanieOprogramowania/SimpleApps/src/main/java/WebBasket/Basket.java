@@ -15,12 +15,6 @@ public class Basket {
         Map<String, Double> orderedItem = new HashMap<>();
 
 
-
-
-
-
-
-
         //Wywołanie koszyka
 
         Basket basket = new Basket();
@@ -37,10 +31,23 @@ public class Basket {
 
         //Dodanie do koszyka
         orderedItem.put(itemID0001.getName(),itemID0001.getPrice());
-        //Basket.ordered
+        orderedItem.put(itemID0002.getName(),itemID0002.getPrice());
+        orderedItem.put(itemID0003.getName(),itemID0003.getPrice());
+        orderedItem.put(itemID0004.getName(),itemID0004.getPrice());
+        orderedItem.put(itemID0005.getName(),itemID0005.getPrice());
+        orderedItem.put(itemID0006.getName(),itemID0006.getPrice());
+        orderedItem.put(itemID0007.getName(),itemID0007.getPrice());
+        orderedItem.put(itemID0008.getName(),itemID0008.getPrice());
+
+
+
 
 
         //Wyświetlenie zawartości koszyka z podsumowaniem i ceną.
+
+}
+
+public void showBasketDetails() {
 
 }
 }
