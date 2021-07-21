@@ -2,8 +2,8 @@ package WebBasket;
 
 public class Item {
 
-    private String name;
-    private double price;
+    private final String name;
+    private final double price;
 
     public Item(String name, double price)
     {
