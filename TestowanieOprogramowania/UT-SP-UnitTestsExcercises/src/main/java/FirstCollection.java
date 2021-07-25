@@ -89,7 +89,7 @@ public class FirstCollection {
         }
 
         Set<String> sampleSet = new HashSet<>();
-        sampleSet.add("Lukasz");
+        sampleSet.add("Lukas z");
         sampleSet.add("Wojtus");
         sampleSet.add("Krzys");
         sampleSet.add("Izunia");
