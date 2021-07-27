@@ -55,7 +55,7 @@ public class ItemTest {
     }
     @Test
     public void twoItemsWithTheSameNameAndPriceAreEqual(){
-        Assert.assertEquals(new Item("item", 123.12), new Item("item", 123.12));
+        Assert.assertEquals(itemID0001, itemID0002);
     }
 
 }
