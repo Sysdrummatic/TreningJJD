@@ -25,13 +25,19 @@ public class BasketTest {
         itemID0006 = new Item("Stojak łamany",379.49);
         basket = new Basket();
     }
+    @Test
+    public void shouldReturn3Items(){
+        basket.add(itemID0001,3);
+        Assert.assertEquals(3,basket.getBasketSize());
+    }
 
     @Test //add method tests
     public void addMoreThanOne() {
 
 
         basket.add(itemID0001,3);
-        //Assert.assertTrue(basket);
+        basket.getBasketSize();
+        //Assert.assertTrue();
 
     }
     @Test

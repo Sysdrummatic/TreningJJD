@@ -6,7 +6,7 @@ import java.util.TreeMap;
 
 public class Basket {
 
-    private final Map<Item, Integer> orderedItem = new TreeMap<>();
+    public final Map<Item, Integer> orderedItem = new TreeMap<>();
 
     Scanner typePromocode = new Scanner(System.in);
 
@@ -14,7 +14,7 @@ public class Basket {
         add(item,1);
     }
 
-    public void add(Item item, int quantity){
+    public void add(Item item, Integer quantity){
         if(quantity <= 0)
         {
             throw new IllegalArgumentException("You can't add less than one product");
@@ -26,12 +26,16 @@ public class Basket {
         remove(item,1);
     }
 
-    public void remove(Item item, int quantity){
+    public void remove(Item item, Integer quantity){
         if(quantity > orderedItem.size())
         {
             throw new IllegalArgumentException("You can't remove more than you your basket content");
         }
         orderedItem.remove(item, quantity);
+    }
+
+    public int getBasketSize(){
+        return orderedItem.size();
     }
 
     public void removeAll(){

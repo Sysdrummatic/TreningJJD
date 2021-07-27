@@ -8,10 +8,13 @@ public class ItemTest {
     private Item product;
     private String correctName;
     private String wrongName;
-    private double floatPrice;
+    private double doublePrice;
     private double integerPrice;
     private double zeroPrice;
     private double nullPrice;
+    Item itemID0001;
+    Item itemID0002;
+    Item itemID0003;
 
     @Before
     public void setUpData(){
@@ -19,9 +22,12 @@ public class ItemTest {
         correctName = "Produkt 1";
         wrongName = null;
         integerPrice = 2;
-        floatPrice = 1.59;
+        doublePrice = 1.59;
         zeroPrice = 0;
-        product = new Item(correctName, floatPrice);
+        product = new Item(correctName, doublePrice);
+        itemID0001 = new Item("Palki perkusyjne",10.50);
+        itemID0002 = new Item("Palki perkusyjne",10.50);
+        itemID0003 = new Item("Talerz Crash 18",259.50);
 
     }
 
@@ -45,6 +51,11 @@ public class ItemTest {
     @Test(expected = IllegalArgumentException.class)
     public void throwErrorForNullValuedName(){
 
-        new Item(wrongName,floatPrice);
+        new Item(wrongName, doublePrice);
     }
+    @Test
+    public void twoItemsWithTheSameNameAndPriceAreEqual(){
+        Assert.assertEquals(new Item("item", 123.12), new Item("item", 123.12));
+    }
+
 }

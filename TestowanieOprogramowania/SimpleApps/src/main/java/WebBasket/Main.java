@@ -18,6 +18,9 @@ public class Main {
 
         //Dodanie do koszyka
 
+        basket.add(itemID0001,3);
+
+        System.out.println(basket.getBasketSize());
 
     }
 }

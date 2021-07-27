@@ -25,4 +25,28 @@ public class Item {
     public String getName() {
         return name;
     }
+
+    @Override
+    public boolean equals(Object otherObject) {
+        if (this == otherObject) {
+            return true;
+        }
+        if (otherObject == null || ! (otherObject instanceof Item)) {
+            return false;
+        }
+
+        Item item = (Item) otherObject;
+
+        if (Double.compare(item.price, price) != 0) {
+            return false;
+        }
+        return name.equals(item.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return 31 * name.hashCode();
+    }
+
+
 }
