@@ -1,6 +1,5 @@
 package WebBasket;
 
-import java.sql.SQLOutput;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
@@ -16,7 +15,11 @@ public class Basket {
     }
 
     public void add(Item item, int quantity){
-        
+        if(quantity <= 0)
+        {
+            throw new IllegalArgumentException("You can't add less than one product");
+        }
+        orderedItem.put(item, quantity);
     }
 
     public void remove(Item item){
@@ -24,7 +27,11 @@ public class Basket {
     }
 
     public void remove(Item item, int quantity){
-
+        if(quantity > orderedItem.size())
+        {
+            throw new IllegalArgumentException("You can't remove more than you your basket content");
+        }
+        orderedItem.remove(item, quantity);
     }
 
     public void removeAll(){
