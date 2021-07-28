@@ -1,4 +1,4 @@
-/*import WebBasket.Basket;
+import WebBasket.Basket;
 import WebBasket.Item;
 import org.junit.Assert;
 import org.junit.Before;
@@ -30,29 +30,28 @@ public class ItemTest {
         itemID0001 = new Item("Palki perkusyjne",10.50);
         itemID0002 = new Item("Palki perkusyjne",10.50);
         itemID0003 = new Item("Talerz Crash 18",259.50);
-        basket = new Basket();
 
     }
 
     @Test
-    public void shouldReturnTheName(){
-        Assert.assertEquals(product.getName(), correctName);
+    public void shouldReturnTheCorrectName(){
+        Assert.assertEquals("Palki perkusyjne", itemID0001.getName());
     }
 
     @Test
-    public void shouldReturnThePrice(){
+    public void shouldReturnTheCorrectPrice(){
 
         Assert.assertEquals(product.getPrice(),1.59,0);
         //Assert.assertTrue(product.getName().equals(price));
     }
     @Test(expected = IllegalArgumentException.class)
-    public void throwErrorForValuesLessOrEqual0(){
+    public void shouldThrowErrorForValuesLessOrEqual0(){
 
         new Item(correctName,zeroPrice);
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void throwErrorForNullValuedName(){
+    public void shouldThrowErrorForNullValuedName(){
 
         new Item(wrongName, doublePrice);
     }
@@ -66,4 +65,3 @@ public class ItemTest {
     }
 
 }
-*/
