@@ -32,7 +32,6 @@ public class ItemTest {
     public void shouldReturnTheCorrectName(){
         Assert.assertEquals("Palki perkusyjne", itemID0001.getName());
     }
-
     @Test
     public void shouldReturnTheCorrectPrice(){
 
@@ -43,7 +42,6 @@ public class ItemTest {
 
         new Item(correctName,zeroPrice);
     }
-
     @Test(expected = IllegalArgumentException.class)
     public void shouldThrowErrorForNullValuedName(){
 
