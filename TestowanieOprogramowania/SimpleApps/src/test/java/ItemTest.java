@@ -1,8 +1,9 @@
-import WebBasket.Basket;
 import WebBasket.Item;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 public class ItemTest {
 
@@ -30,12 +31,12 @@ public class ItemTest {
 
     @Test
     public void shouldReturnTheCorrectName(){
-        Assert.assertEquals("Palki perkusyjne", itemID0001.getName());
+        assertEquals("Palki perkusyjne", itemID0001.getName());
     }
     @Test
     public void shouldReturnTheCorrectPrice(){
 
-        Assert.assertEquals(10.50,itemID0001.getPrice(),0);
+        assertEquals(10.50,itemID0001.getPrice(),0);
     }
     @Test(expected = IllegalArgumentException.class)
     public void shouldThrowErrorForValuesLessOrEqual0(){
@@ -49,11 +50,16 @@ public class ItemTest {
     }
     @Test
     public void twoItemsWithTheSameNameAndPriceAreEqual(){
-        Assert.assertEquals(itemID0001, itemID0002);
+        assertEquals(itemID0001, itemID0002);
     }
     @Test
-    public void twoItemsWithdDifferentNameAndPriceAreNotEqual(){
-        Assert.assertNotEquals(itemID0001, itemID0003);
+    public void twoItemsWithDifferentNameAndPriceAreNotEqual(){
+        assertNotEquals(itemID0001, itemID0003);
+    }
+    //HashCode Check
+    @Test
+    public void hashCodeCheckForTheSameNamedItem(){
+        assertEquals(itemID0001.hashCode(),itemID0002.hashCode());
     }
 
 }
