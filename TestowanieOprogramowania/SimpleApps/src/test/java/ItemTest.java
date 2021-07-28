@@ -61,5 +61,8 @@ public class ItemTest {
     public void hashCodeCheckForTheSameNamedItem(){
         assertEquals(itemID0001.hashCode(),itemID0002.hashCode());
     }
-
+    @Test
+    public void hashCodeCheckForDifferentNamedItem(){
+        assertNotEquals(itemID0001.hashCode(),itemID0003.hashCode());
+    }
 }
