@@ -1,6 +1,6 @@
 package WebBasket;
 
-public class Item {
+public class Item implements Comparable<Item>{
 
     private final String name;
     private final double price;
@@ -49,4 +49,15 @@ public class Item {
     }
 
 
+    @Override
+    public int compareTo(Item other) {
+        if (other == null) {
+            return 1;
+        }
+        int comparision = this.getName().compareTo(other.getName());
+        if (comparision != 0) {
+            return comparision;
+        }
+        return Double.compare(this.getPrice(), other.getPrice());
+    }
 }

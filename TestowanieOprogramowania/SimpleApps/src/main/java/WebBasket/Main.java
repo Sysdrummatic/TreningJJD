@@ -21,6 +21,8 @@ public class Main {
         System.out.println(basket.orderedItem.size());
 
         basket.add(itemID0001,3);
+        basket.add(itemID0002,2);
+        basket.add(itemID0003,1);
 
 
         System.out.println(basket.orderedItem.size());
