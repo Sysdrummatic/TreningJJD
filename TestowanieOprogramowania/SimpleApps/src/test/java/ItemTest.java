@@ -1,3 +1,4 @@
+import WebBasket.Basket;
 import WebBasket.Item;
 import org.junit.Assert;
 import org.junit.Before;
@@ -15,6 +16,7 @@ public class ItemTest {
     Item itemID0001;
     Item itemID0002;
     Item itemID0003;
+    Basket basket;
 
     @Before
     public void setUpData(){
@@ -28,6 +30,7 @@ public class ItemTest {
         itemID0001 = new Item("Palki perkusyjne",10.50);
         itemID0002 = new Item("Palki perkusyjne",10.50);
         itemID0003 = new Item("Talerz Crash 18",259.50);
+        basket = new Basket();
 
     }
 
@@ -56,6 +59,7 @@ public class ItemTest {
     @Test
     public void twoItemsWithTheSameNameAndPriceAreEqual(){
         Assert.assertEquals(itemID0001, itemID0002);
+        basket.orderedItem.size();
     }
 
 }

@@ -28,7 +28,9 @@ public class BasketTest {
     @Test
     public void shouldReturn3Items(){
         basket.add(itemID0001,3);
-        Assert.assertEquals(3,basket.getBasketSize());
+        Assert.assertEquals(3,basket.orderedItem.size());
+
+
     }
 
     @Test //add method tests
