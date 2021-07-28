@@ -31,7 +31,7 @@ public class Item {
         if (this == otherObject) {
             return true;
         }
-        if (otherObject == null || ! (otherObject instanceof Item)) {
+        if (!(otherObject instanceof Item)) {
             return false;
         }
 

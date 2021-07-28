@@ -18,9 +18,12 @@ public class Main {
 
         //Dodanie do koszyka
 
+        System.out.println(basket.orderedItem.size());
+
         basket.add(itemID0001,3);
 
-        System.out.println(basket.getBasketSize());
+
+        System.out.println(basket.orderedItem.size());
 
     }
 }

@@ -59,7 +59,10 @@ public class ItemTest {
     @Test
     public void twoItemsWithTheSameNameAndPriceAreEqual(){
         Assert.assertEquals(itemID0001, itemID0002);
-        basket.orderedItem.size();
+    }
+    @Test
+    public void twoItemsInTheBasketAreEqual(){
+        //Assert.assertEquals(basket.orderedItem, itemID0002);
     }
 
 }

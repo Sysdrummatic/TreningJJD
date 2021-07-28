@@ -34,10 +34,6 @@ public class Basket {
         orderedItem.remove(item, quantity);
     }
 
-    public int getBasketSize(){
-        return orderedItem.size();
-    }
-
     public void removeAll(){
 
     }

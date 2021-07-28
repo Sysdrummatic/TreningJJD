@@ -38,7 +38,7 @@ public class BasketTest {
 
 
         basket.add(itemID0001,3);
-        basket.getBasketSize();
+
         //Assert.assertTrue();
 
     }
