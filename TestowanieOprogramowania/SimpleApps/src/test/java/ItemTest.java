@@ -41,8 +41,7 @@ public class ItemTest {
     @Test
     public void shouldReturnTheCorrectPrice(){
 
-        Assert.assertEquals(product.getPrice(),1.59,0);
-        //Assert.assertTrue(product.getName().equals(price));
+        Assert.assertEquals(10.50,itemID0001.getPrice(),0);
     }
     @Test(expected = IllegalArgumentException.class)
     public void shouldThrowErrorForValuesLessOrEqual0(){
