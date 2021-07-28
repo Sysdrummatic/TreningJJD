@@ -52,8 +52,8 @@ public class ItemTest {
         Assert.assertEquals(itemID0001, itemID0002);
     }
     @Test
-    public void twoItemsInTheBasketAreEqual(){
-        //Assert.assertEquals(basket.orderedItem, itemID0002);
+    public void twoItemsWithdDifferentNameAndPriceAreNotEqual(){
+        Assert.assertNotEquals(itemID0001, itemID0003);
     }
 
 }
