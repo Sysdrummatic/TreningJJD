@@ -18,14 +18,17 @@ public class Main {
 
         //Dodanie do koszyka
 
-        System.out.println(basket.orderedItem.size());
+        System.out.println(basket.getOrderValue());
+
+        //System.out.println(basket.orderedItem.size());
 
         basket.add(itemID0001,3);
         basket.add(itemID0002,2);
         basket.add(itemID0003,1);
 
+        System.out.println(basket.getOrderValue());
 
-        System.out.println(basket.orderedItem.size());
+        //System.out.println(basket.orderedItem.size());
 
     }
 }

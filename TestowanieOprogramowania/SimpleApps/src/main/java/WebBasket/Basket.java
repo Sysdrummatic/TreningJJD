@@ -6,7 +6,7 @@ import java.util.TreeMap;
 
 public class Basket {
 
-    public final Map<Item, Integer> orderedItem = new TreeMap<>();
+    private final Map<Item, Integer> orderedItem = new TreeMap<>();
 
     Scanner typePromocode = new Scanner(System.in);
 
@@ -43,6 +43,16 @@ public class Basket {
         else{
             orderedItem.put(item, quantity);
         }
+    }
+
+    public double getOrderValue() {
+        double orderValue = 0;
+
+        for(Map.Entry<Item, Integer> itemOrder : orderedItem.entrySet()) {
+            orderValue += itemOrder.getKey().getPrice() * itemOrder.getValue();
+        }
+
+        return orderValue;
     }
 
     public void removeAll(){
