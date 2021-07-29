@@ -30,11 +30,19 @@ public class Basket {
     }
 
     public void remove(Item item, Integer quantity){
-        if(quantity > orderedItem.size())
-        {
+        if(quantity <= 0) {
             throw new IllegalArgumentException("You can't remove more than you your basket content");
         }
-        orderedItem.remove(item, quantity);
+        quantity = orderedItem.get(item) - quantity;
+        if(quantity == 0){
+            orderedItem.remove(item);
+        }
+        else if(quantity <0){
+            throw new IllegalArgumentException("No items to remove");
+        }
+        else{
+            orderedItem.put(item, quantity);
+        }
     }
 
     public void removeAll(){
