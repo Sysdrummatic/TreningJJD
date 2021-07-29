@@ -19,6 +19,9 @@ public class Basket {
         {
             throw new IllegalArgumentException("You can't add less than one product");
         }
+        if(orderedItem.containsKey(item)){
+            quantity = orderedItem.get(item) + quantity;
+        }
         orderedItem.put(item, quantity);
     }
 
