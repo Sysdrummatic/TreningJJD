@@ -18,19 +18,19 @@ public class ItemTest {
     @Before
     public void setUpData(){
         //given
-        correctName = "Produkt 1";
+        correctName = "Product 1";
         wrongName = null;
         doublePrice = 1.59;
         zeroPrice = 0;
-        itemID0001 = new Item("Palki perkusyjne",10.50);
-        itemID0002 = new Item("Palki perkusyjne",10.50);
-        itemID0003 = new Item("Talerz Crash 18",259.50);
+        itemID0001 = new Item("Drum sticks",10.50);
+        itemID0002 = new Item("Drum sticks",10.50);
+        itemID0003 = new Item("Crash cymbal 18",259.50);
 
     }
 
     @Test
     public void shouldReturnTheCorrectName(){
-        assertEquals("Palki perkusyjne", itemID0001.getName());
+        assertEquals("Drum sticks", itemID0001.getName());
     }
     @Test
     public void shouldReturnTheCorrectPrice(){
