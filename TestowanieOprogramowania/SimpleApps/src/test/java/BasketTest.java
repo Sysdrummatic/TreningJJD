@@ -20,46 +20,32 @@ public class BasketTest {
     }
     @Test
     public void shouldAddOnlyOneItem(){
-        basket.add(itemID0001);
 
+        basket.add(itemID0001);
         Map<Item,Integer> expected = createOrder(itemID0001,1);
         Assert.assertEquals(expected, basket.getOrderedItem());
     }
-
     @Test
     public void shouldAddOneItemWithQuantityOne(){
-        basket.add(itemID0001,1);
 
+        basket.add(itemID0001,1);
         Map<Item,Integer> expected = createOrder(itemID0001,1);
         Assert.assertEquals(expected, basket.getOrderedItem());
     }
-
     @Test
     public void shouldAddMoreThanOneItemOfTheSameType(){
 
         basket.add(itemID0001);
         basket.add(itemID0001);
-
         Map<Item,Integer> expected = createOrder(itemID0001,2);
         Assert.assertEquals(expected, basket.getOrderedItem());
     }
-
     @Test
     public void shouldAddManyItemsOfTheSameType(){
 
         basket.add(itemID0001,31);
-
         Map<Item,Integer> expected = createOrder(itemID0001,31);
         Assert.assertEquals(expected,basket.getOrderedItem());
-    }
-
-
-    @Test
-    public void shouldReturn3Items(){
-        basket.add(itemID0001,3);
-        //Assert.assertEquals(3,basket.orderedItem.size());
-
-
     }
 
     @Test //add method tests
