@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -47,23 +48,13 @@ public class BasketTest {
         Map<Item,Integer> expected = createOrder(itemID0001,31);
         Assert.assertEquals(expected,basket.getOrderedItem());
     }
-
-    @Test //add method tests
-    public void addMoreThanOne() {
-
-
-        basket.add(itemID0001,3);
-
-        //Assert.assertTrue();
-
-    }
     @Test
-    public void removeTest() {
+    public void shouldRemoveOneItem(){
 
-    }
-    @Test
-    public void removeAllTest() {
-
+        basket.add(itemID0001);
+        basket.remove(itemID0001);
+        Map<Item,Integer> expected = Collections.emptyMap();
+        Assert.assertEquals(expected, basket.getOrderedItem());
     }
     @Test
     public void showBasketDetailsTest() {
