@@ -36,6 +36,16 @@ public class BasketTest {
         Assert.assertEquals(expected, basket.getOrderedItem());
     }
 
+    @Test
+    public void shouldAddMoreThanOneItemOfTheSameType(){
+
+        basket.add(itemID0001);
+        basket.add(itemID0001);
+
+        Map<Item,Integer> expected = createOrder(itemID0001,2);
+        Assert.assertEquals(expected, basket.getOrderedItem());
+    }
+
 
     @Test
     public void shouldReturn3Items(){
