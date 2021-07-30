@@ -68,7 +68,10 @@ public class BasketTest {
     public void shouldNotAcceptQuantityZero(){
         basket.add(itemID0001,0);
     }
-
+    @Test(expected = IllegalArgumentException.class)
+    public void shouldNotAllowRemoveQuantityZero(){
+        basket.remove(itemID0001,0);
+    }
 
     @Test
     public void showBasketDetailsTest() {
