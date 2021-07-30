@@ -1,5 +1,6 @@
 package WebBasket;
 
+import java.util.Collections;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
@@ -52,6 +53,10 @@ public class Basket {
         }
 
         return orderValue;
+    }
+
+    public Map<Item, Integer> getOrderedItem() {
+        return Collections.unmodifiableMap(orderedItem);
     }
 
     public void removeAll(){
