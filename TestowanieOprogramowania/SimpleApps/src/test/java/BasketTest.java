@@ -64,6 +64,12 @@ public class BasketTest {
         Map<Item,Integer> expected = createOrder(itemID0001,1);
         Assert.assertEquals(expected, basket.getOrderedItem());
     }
+    @Test(expected = IllegalArgumentException.class)
+    public void shouldNotAcceptQuantityZero(){
+        basket.add(itemID0001,0);
+    }
+
+
     @Test
     public void showBasketDetailsTest() {
 
