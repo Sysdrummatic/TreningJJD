@@ -55,18 +55,6 @@ public class BasketTest {
     }
 
     @Test
-    public void shouldAddMoreThanOneItemOfDifferentType(){
-
-        basket.add(itemID0001);
-        basket.add(itemID0002);
-
-        Map<Item,Integer> expected1 = createOrder(itemID0001,1);
-        Assert.assertEquals(expected1, basket.getOrderedItem());
-        Map<Item,Integer> expected2 = createOrder(itemID0001,1);
-        Assert.assertEquals(expected2, basket.getOrderedItem());
-    }
-
-    @Test
     public void shouldAddManyItemsOfTheSameType(){
 
         basket.add(itemID0003,31);
