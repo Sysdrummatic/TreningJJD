@@ -28,6 +28,15 @@ public class Main {
 
         System.out.println(basket.getOrderValue());
 
+        basket.remove(itemID0001);
+
+        System.out.println(basket.getOrderValue());
+
+        basket.add(itemID0004);
+
+        System.out.println(basket.getOrderValue());
+        System.out.println(basket.getOrderValue());
+
         //System.out.println(basket.orderedItem.size());
 
     }

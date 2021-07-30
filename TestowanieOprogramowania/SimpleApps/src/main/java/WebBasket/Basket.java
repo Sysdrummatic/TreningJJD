@@ -7,7 +7,6 @@ import java.util.TreeMap;
 public class Basket {
 
     private final Map<Item, Integer> orderedItem = new TreeMap<>();
-
     Scanner typePromocode = new Scanner(System.in);
 
     public void add(Item item){
