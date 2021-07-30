@@ -4,6 +4,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class BasketTest {
 
     private Basket basket;
@@ -25,6 +28,15 @@ public class BasketTest {
         itemID0006 = new Item("Stojak łamany",379.49);
         basket = new Basket();
     }
+    @Test
+    public void shouldAddOnlyOneItem(){
+        basket.add(itemID0001);
+
+        Map<Item,Integer> expected = createOrder(itemID0001,1);
+        Assert.assertEquals(expected, basket.getOrderedItem());
+    }
+
+
     @Test
     public void shouldReturn3Items(){
         basket.add(itemID0001,3);
@@ -57,6 +69,18 @@ public class BasketTest {
     @Test
     public void buyTest() {
 
+    }
+
+    private static Map<Item, Integer> createOrder(Object ... mapContent) {
+        Map<Item, Integer> result = new HashMap<>();
+
+        for (int index = 0; index < mapContent.length; index += 2) {
+            Item item = (Item) mapContent[index];
+            Integer quantity = (Integer) mapContent[index + 1];
+            result.put(item, quantity);
+        }
+
+        return result;
     }
 
 
