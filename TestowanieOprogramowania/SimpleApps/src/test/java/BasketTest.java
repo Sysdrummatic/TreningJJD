@@ -12,11 +12,15 @@ public class BasketTest {
 
     private Basket basket;
     public Item itemID0001;
+    public Item itemID0002;
+    public Item itemID0003;
 
     @Before
     public void dataSetUp(){
 
         itemID0001 = new Item("Palki perkusyjne",10.50);
+        itemID0002 = new Item("Talerz Crash 18",259.50);
+        itemID0003 = new Item("Stołek perkusyjny",150.65);
         basket = new Basket();
     }
     @Test
@@ -83,9 +87,17 @@ public class BasketTest {
         basket.remove(itemID0001,3);
     }
     @Test
-    public void shouldReturnOrderValue(){
+    public void shouldReturnSimpleOrderValue(){
         basket.add(itemID0001,3);
         double expectedValue = itemID0001.getPrice()*3;
+        Assert.assertEquals(expectedValue,basket.getOrderValue(),0);
+    }
+    @Test
+    public void shouldReturnOrderValueWithManyItems(){
+        basket.add(itemID0001,3);
+        basket.add(itemID0002,2);
+        basket.add(itemID0003,1);
+        double expectedValue = itemID0001.getPrice()*3 + itemID0002.getPrice()*2 + itemID0003.getPrice();
         Assert.assertEquals(expectedValue,basket.getOrderValue(),0);
     }
     @Test
