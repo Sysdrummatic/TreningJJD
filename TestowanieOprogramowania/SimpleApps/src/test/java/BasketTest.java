@@ -85,6 +85,12 @@ public class BasketTest {
         //Assert.assertEquals(expected, basket.getOrderedItem());
     }
     @Test
+    public void shouldReturnOrderValue(){
+        basket.add(itemID0001,3);
+        double expectedValue = itemID0001.getPrice()*3;
+        Assert.assertEquals(expectedValue,basket.getOrderValue(),0);
+    }
+    @Test
     public void showBasketDetailsTest() {
 
     }
