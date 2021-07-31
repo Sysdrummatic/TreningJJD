@@ -76,7 +76,14 @@ public class BasketTest {
     public void shouldNotAllowRemoveMinusQuantityValue(){
         basket.remove(itemID0001,-10);
     }
+    @Test(expected = IllegalArgumentException.class)
+    public void shouldNotRemoveMoreThanExistingItem(){
 
+        basket.add(itemID0001,2);
+        basket.remove(itemID0001,3);
+        //Map<Item,Integer> expected = createOrder(itemID0001,1);
+        //Assert.assertEquals(expected, basket.getOrderedItem());
+    }
     @Test
     public void showBasketDetailsTest() {
 
