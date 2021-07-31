@@ -102,6 +102,17 @@ public class BasketTest {
         Assert.assertEquals(expectedValue,basket.getOrderValue(),0);
     }
     @Test
+    public void checkIsAllItemsAreRemoved(){
+        basket.add(itemID0001,3);
+        basket.add(itemID0002,2);
+        basket.add(itemID0003,1);
+        basket.removeAll();
+        Map<Item,Integer> expected = createOrder(itemID0001,1);
+        expected.remove(itemID0001,1);
+        Assert.assertEquals(expected,basket.getOrderedItem());
+
+    }
+    @Test
     public void showBasketDetailsTest() {
 
     }
