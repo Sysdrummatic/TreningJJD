@@ -60,7 +60,7 @@ public class Basket {
     }
 
     public void removeAll(){
-
+        orderedItem.clear();
     }
     public void showBasketDetails() {
 
