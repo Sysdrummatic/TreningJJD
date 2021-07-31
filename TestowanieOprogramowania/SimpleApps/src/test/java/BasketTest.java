@@ -18,7 +18,8 @@ public class BasketTest {
     @Before
     public void dataSetUp(){
 
-        itemID0001 = new Item("Drum sticks",10.50);
+        itemID0001 = new Item("Drum sticks X",10.50);
+        itemID0001 = new Item("Drum sticks X",10.50);
         itemID0002 = new Item("Crash cymbal 18",259.50);
         itemID0003 = new Item("Drum chair",150.65);
         basket = new Basket();
@@ -106,7 +107,6 @@ public class BasketTest {
     }
     @Test
     public void buyTest() {
-
     }
 
     private static Map<Item, Integer> createOrder(Object ... mapContent) {
