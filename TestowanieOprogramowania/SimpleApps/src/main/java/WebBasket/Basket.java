@@ -44,28 +44,34 @@ public class Basket {
             orderedItem.put(item, quantity);
         }
     }
-
+    public void removeAll(){
+        orderedItem.clear();
+    }
     public double getOrderValue() {
         double orderValue = 0;
 
         for(Map.Entry<Item, Integer> itemOrder : orderedItem.entrySet()) {
             orderValue += itemOrder.getKey().getPrice() * itemOrder.getValue();
         }
-
         return orderValue;
     }
-
     public Map<Item, Integer> getOrderedItem() {
         return Collections.unmodifiableMap(orderedItem);
     }
 
-    public void removeAll(){
-        orderedItem.clear();
-    }
+//getOrderValue method unused on purpose
     public void showBasketDetails() {
-
-        //Wyświetl listę przedmiotów w koszyku z nazwą, ilością, sceną oraz zbiorczą sumą zamówienia
-
+        double totalPrice = 0;
+        System.out.println("Items in the basket:");
+        for (Map.Entry<Item, Integer> entry : orderedItem.entrySet()) {
+            String name = entry.getKey().getName();
+            double price = entry.getKey().getPrice();
+            Integer value = entry.getValue();
+            totalPrice += price * value;
+            System.out.println("Product: " + name + " - " + price + " zł for single item. " + value + " items added. " + price*value + " zł for all.");
+        }
+        System.out.println("------");
+        System.out.println("Total price for all basket is: " + totalPrice + " zł.");
     }
     public void buy(){
         System.out.println("Thank you for buying at DrumCo.com!");

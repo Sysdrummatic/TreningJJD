@@ -37,6 +37,8 @@ public class Main {
         System.out.println(basket.getOrderValue());
         System.out.println(basket.getOrderValue());
 
+        basket.showBasketDetails();
+
         //System.out.println(basket.orderedItem.size());
 
     }
