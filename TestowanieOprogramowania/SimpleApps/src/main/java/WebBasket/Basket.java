@@ -67,23 +67,26 @@ public class Basket {
             String name = entry.getKey().getName();
             double price = entry.getKey().getPrice();
             Integer value = entry.getValue();
+            double itemsMultiplied = price*value;
             totalPrice += price * value;
-            System.out.println("Product: " + name + " - " + price + " zł for single item. " + value + " items added. " + price*value + " zł for all.");
+            System.out.println("Product: " + name + " - " + price + " zł for single item. " + value + " items added. " + itemsMultiplied + " zł for all.");
         }
         System.out.println("------");
         System.out.println("Total price for all basket is: " + totalPrice + " zł.");
     }
     public void buy(){
+        final double  DISCOUNT = 0.15;
+        double AFTER_DISCOUNT;
+        final String CORRECT_PROMOCODE = "xyz";
         System.out.println("Thank you for buying at DrumCo.com!");
-//        System.out.println("Type a promocode if you have one. Otherwise type - and enter.");
-//        String promocode = typePromocode.nextLine();
-//
-
-        getOrderValue();
+        System.out.println("Type a promocode if you have one. Otherwise press enter.");
+        String promocode = typePromocode.nextLine();
+        showBasketDetails();
+        if(promocode.equals(CORRECT_PROMOCODE)) {
+            AFTER_DISCOUNT = getOrderValue() - (getOrderValue() * DISCOUNT);
+            AFTER_DISCOUNT = Math.round(AFTER_DISCOUNT);
+            System.out.println("Your price with promocode " + CORRECT_PROMOCODE + " is: " + AFTER_DISCOUNT + " zł.");
+            }
         removeAll();
-
-        //Wyświetlenie zawartości koszyka z podsumowaniem i ceną.
     }
-
-
 }
