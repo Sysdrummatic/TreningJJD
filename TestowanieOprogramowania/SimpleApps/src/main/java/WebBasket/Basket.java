@@ -60,7 +60,7 @@ public class Basket {
     }
 
 //getOrderValue method unused on purpose
-    public void showBasketDetails() {
+    public double showBasketDetails() {
         double totalPrice = 0;
         System.out.println("Items in the basket:");
         for (Map.Entry<Item, Integer> entry : orderedItem.entrySet()) {
@@ -73,6 +73,7 @@ public class Basket {
         }
         System.out.println("------");
         System.out.println("Total price for all basket is: " + totalPrice + " zł.");
+        return totalPrice;
     }
     public void buy(){
         final double  DISCOUNT = 0.15;
