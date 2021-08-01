@@ -109,7 +109,6 @@ public class BasketTest {
         Map<Item,Integer> expected = createOrder(itemID0001,1);
         expected.remove(itemID0001,1);
         Assert.assertEquals(expected,basket.getOrderedItem());
-
     }
     @Test
     public void checkIfTotalPriceIsCorrect() {
@@ -118,11 +117,16 @@ public class BasketTest {
         basket.add(itemID0003,2);
         double expectedSum = itemID0001.getPrice() * 2 + itemID0002.getPrice() * 2 + itemID0003.getPrice() * 2;
         Assert.assertEquals(expectedSum,basket.showBasketDetails(),0);
-
-
     }
     @Test
-    public void buyTest() {
+    public void checkIfPromocodeActivateADiscount() {
+        double normalPrize = 100;
+        basket.add(new Item("Product",normalPrize),1);
+        double expectedDiscountedPrize = 85;
+        String correctCode = "xyz";
+        double discountedPrize = basket.discount(correctCode);
+        Assert.assertEquals(expectedDiscountedPrize,discountedPrize,0);
+
     }
 
     private static Map<Item, Integer> createOrder(Object ... mapContent) {
