@@ -134,6 +134,13 @@ public class BasketTest {
         double discountedPrize = basket.discount(blankCode);
         Assert.assertEquals(expectedDiscountedPrize,discountedPrize,0);
     }
+    @Test
+    public void checkIfWrongPromocodeDoseNotActivateADiscount() {
+        double expectedDiscountedPrize = 0;
+        String blankCode = "1qa";
+        double discountedPrize = basket.discount(blankCode);
+        Assert.assertEquals(expectedDiscountedPrize,discountedPrize,0);
+    }
 
     private static Map<Item, Integer> createOrder(Object ... mapContent) {
         Map<Item, Integer> result = new HashMap<>();
