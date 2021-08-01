@@ -75,19 +75,24 @@ public class Basket {
         System.out.println("Total price for all basket is: " + totalPrice + " zł.");
         return totalPrice;
     }
-    public void buy(){
+    public double discount(String promocode){
         final double  DISCOUNT = 0.15;
-        double AFTER_DISCOUNT;
+        double AFTER_DISCOUNT = 0;
         final String CORRECT_PROMOCODE = "xyz";
-        System.out.println("Thank you for buying at DrumCo.com!");
-        System.out.println("Type a promocode if you have one. Otherwise press enter.");
-        String promocode = typePromocode.nextLine();
-        showBasketDetails();
         if(promocode.equals(CORRECT_PROMOCODE)) {
             AFTER_DISCOUNT = getOrderValue() - (getOrderValue() * DISCOUNT);
             AFTER_DISCOUNT = Math.round(AFTER_DISCOUNT);
             System.out.println("Your price with promocode " + CORRECT_PROMOCODE + " is: " + AFTER_DISCOUNT + " zł.");
-            }
+        }
+        return AFTER_DISCOUNT;
+    }
+
+    public void buy(){
+        System.out.println("Thank you for buying at DrumCo.com!");
+        System.out.println("Type a promocode if you have one. Otherwise press enter.");
+        String promocode = typePromocode.nextLine();
+        showBasketDetails();
+        discount(promocode);
         removeAll();
     }
 }
