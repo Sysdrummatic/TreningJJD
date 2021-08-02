@@ -24,7 +24,6 @@ public class Basket {
         }
         orderedItem.put(item, quantity);
     }
-
     public void remove(Item item){
         remove(item,1);
     }
@@ -58,7 +57,6 @@ public class Basket {
     public Map<Item, Integer> getOrderedItem() {
         return Collections.unmodifiableMap(orderedItem);
     }
-
 //getOrderValue method unused on purpose
     public double showBasketDetails() {
         double totalPrice = 0;
@@ -86,7 +84,6 @@ public class Basket {
         }
         return AFTER_DISCOUNT;
     }
-
     public void buy(){
         System.out.println("Thank you for buying at DrumCo.com!");
         System.out.println("Type a promocode if you have one. Otherwise press enter.");
