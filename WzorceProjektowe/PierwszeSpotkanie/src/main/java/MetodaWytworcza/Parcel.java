@@ -1,4 +1,4 @@
 package MetodaWytworcza;
 
-public class Class {
+public class Parcel {
 }
