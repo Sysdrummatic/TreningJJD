@@ -10,7 +10,7 @@ public class Parcel {
 
     @Override
     public String toString(){
-        return String.format("[samro:%s]", orderId);
+        return String.format("[sampro:%s]", orderId);
     }
 }
 
