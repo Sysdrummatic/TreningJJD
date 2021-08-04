@@ -15,7 +15,7 @@ public class OrderLifecycle {
 
     private Parcel prepareParcel(String orderId){
         Parcel parcel = new Parcel(orderId);
-        System.out.println(String.format("Parcel %s was delivered by Pigeon", parcel));
+        System.out.println(String.format("Parcel %s was prepared", parcel));
         return parcel;
     }
 }
