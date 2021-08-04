@@ -1,4 +1,4 @@
-package MetodaWytworcza;
+package Classes;
 
 public class PostOffice {
 }

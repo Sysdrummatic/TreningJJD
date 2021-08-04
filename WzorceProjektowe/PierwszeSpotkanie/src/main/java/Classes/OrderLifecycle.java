@@ -1,4 +1,6 @@
-package MetodaWytworcza;
+package Classes;
+
+import Interfaces.DeliveryService;
 
 public class OrderLifecycle {
     public void processOrder(String orderId){
