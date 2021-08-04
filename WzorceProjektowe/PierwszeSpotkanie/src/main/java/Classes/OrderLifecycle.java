@@ -19,17 +19,3 @@ public class OrderLifecycle {
         return parcel;
     }
 }
-class PigeonOrderLifecycle extends OrderLifecycle{
-
-    @Override
-    protected DeliveryService deliveryService(){
-        return new Pigeon();
-    }
-}
-class CourierOrderLifeCycle extends OrderLifecycle{
-
-    @Override
-    protected DeliveryService deliveryService(){
-        return new Courier();
-    }
-}
