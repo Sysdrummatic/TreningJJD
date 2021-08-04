@@ -26,4 +26,10 @@ class PigeonOrderLifecycle extends OrderLifecycle{
         return new Pigeon();
     }
 }
-class CourierOrderLifeCycle
+class CourierOrderLifeCycle extends OrderLifecycle{
+
+    @Override
+    protected DeliveryService deliveryService(){
+        return new Courier();
+    }
+}
