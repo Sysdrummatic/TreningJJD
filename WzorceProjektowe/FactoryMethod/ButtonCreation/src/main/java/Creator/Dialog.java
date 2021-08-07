@@ -1,6 +1,5 @@
 package Creator;
 
-
 import Product.Button;
 
 public abstract class Dialog {
