@@ -8,7 +8,6 @@ public abstract class Dialog {
 
         Button okButton = createButton();
         okButton.render();
-
     }
     public abstract Button createButton();
 }
