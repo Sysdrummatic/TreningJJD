@@ -3,11 +3,10 @@ package ConcreteProducts;
 import Product.Button;
 
 public class HtmlButton implements Button {
-    public String label = "<button>Test Button</button>";
+
     @Override
-    public void render(String label) {
-        this.label = label;
-        System.out.println(label);
+    public void render() {
+        System.out.println("<button>Test Button</button>");
         onClick();
     }
 
