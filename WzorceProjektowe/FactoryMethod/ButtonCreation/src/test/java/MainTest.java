@@ -9,7 +9,7 @@ public class MainTest {
         final String ONE = "1";
         String buttonType = "1";
 
-        Assert.assertTrue(buttonType.equals(ONE));
+        Assert.assertEquals(buttonType, ONE);
 
     }
 }
