@@ -19,7 +19,7 @@ public class Main {
         configure(buttonType);
             if(buttonType.equals(ONE)||buttonType.equals(TWO)||buttonType.equals(THREE))
             {
-                runBussinesLogic();
+                runBusinessLogic();
             } else{
                 System.out.println("Try again and pick correct button");
             }
@@ -45,7 +45,7 @@ public class Main {
         }
     }
 
-    static void runBussinesLogic() {
+    static void runBusinessLogic() {
         dialog.renderWindow();
     }
 }
