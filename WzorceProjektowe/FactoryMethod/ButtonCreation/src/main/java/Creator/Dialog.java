@@ -5,9 +5,9 @@ import Product.Button;
 public abstract class Dialog {
 
     public void renderWindow(){
-
+        String label = "";
         Button okButton = createButton();
-        okButton.render();
+        okButton.render(label);
     }
     public abstract Button createButton();
 }
