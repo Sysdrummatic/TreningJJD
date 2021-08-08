@@ -2,7 +2,7 @@ package ConcreteProducts;
 
 import Product.Button;
 
-public class WindowsHellButton implements Button {
+public class WindowsHellButton extends WindowsButton implements Button {
 
     public WindowsHellButton(){
 
