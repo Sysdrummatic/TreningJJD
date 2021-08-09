@@ -12,13 +12,37 @@ public class Main {
 
         SquarePegAdapter smallSqPegAdapter = new SquarePegAdapter(smallSPeg);
         SquarePegAdapter largeSqPegAdapter = new SquarePegAdapter(largeSPeg);
+
         if(hole.fits(smallSqPegAdapter)){
             System.out.println("Square peg w2 fits round hole r5");
+        } else {
+            System.out.println("Square peg w2 does not fit round hole r5");
         }
         if (hole.fits(largeSqPegAdapter)){
-            System.out.println("Square peg w20 does not fit into round hole r5");
+            System.out.println("Square peg w20 fit into round hole r5");
 
+        } else {
+            System.out.println("Square peg w20 does not fit into round hole r5");
         }
+
+        TrianglePeg smallTPeg = new TrianglePeg(1,1,1);
+        TrianglePeg largeTPeg = new TrianglePeg(10,10,10);
+
+        TrianglePegAdapter smallTPegAdapter = new TrianglePegAdapter(smallTPeg);
+        TrianglePegAdapter largeTPegAdapter = new TrianglePegAdapter(largeTPeg);
+
+        if(hole.fits(smallTPegAdapter)){
+            System.out.println("Triangle peg s1 fits round hole r5");
+        } else {
+            System.out.println("Triangle peg s1 does not fit round hole r5");
+        }
+        if(hole.fits(largeTPegAdapter)){
+            System.out.println("Triangle peg s10 fits round hole r5");
+        } else {
+            System.out.println("Triangle peg s10 does not fit round hole r5");
+        }
+
+
 
     }
 
