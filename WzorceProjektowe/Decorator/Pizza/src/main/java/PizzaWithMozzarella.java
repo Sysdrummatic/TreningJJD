@@ -8,4 +8,7 @@ public class PizzaWithMozzarella extends Pizza {
         this.basePizza = basePizza;
     }
 
+    public BigDecimal getPrice() {
+        return basePizza.getPrice().add(MOZZARELLA_PRICE);
+    }
 }
