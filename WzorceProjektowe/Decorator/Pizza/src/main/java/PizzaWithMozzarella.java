@@ -2,13 +2,13 @@ import java.math.BigDecimal;
 
 public class PizzaWithMozzarella extends Pizza {
     private static final BigDecimal MOZZARELLA_PRICE = new BigDecimal(5);
-    private Pizza basePizza;
+    private Pizza basePrice;
 
-    public PizzaWithMozzarella(Pizza basePizza){
-        this.basePizza = basePizza;
+    public PizzaWithMozzarella(Pizza basePrice){
+        this.basePrice = basePrice;
     }
 
     public BigDecimal getPrice() {
-        return basePizza.getPrice().add(MOZZARELLA_PRICE);
+        return basePrice.getPrice().add(MOZZARELLA_PRICE);
     }
 }
