@@ -1,16 +1,16 @@
 import java.math.BigDecimal;
 
 public abstract class PizzaWithTopping extends Pizza{
-    private BigDecimal toppingPrice;
-    private Pizza basePrice;
+    private final BigDecimal TOPPING_PRICE;
+    private final Pizza BASE_PRICE;
 
     public PizzaWithTopping(Pizza pizza, BigDecimal toppingPrice){
-        this.basePrice = pizza;
-        this.toppingPrice = toppingPrice;
+        this.BASE_PRICE = pizza;
+        this.TOPPING_PRICE = toppingPrice;
     }
     @Override
     public BigDecimal getPrice() {
-        return basePrice.getPrice().add(toppingPrice);
+        return BASE_PRICE.getPrice().add(TOPPING_PRICE);
     }
     @Override
     public String toString() {
