@@ -11,4 +11,8 @@ public class PizzaWithMozzarella extends Pizza {
     public BigDecimal getPrice() {
         return basePrice.getPrice().add(MOZZARELLA_PRICE);
     }
+    @Override
+    public String toString() {
+        return "Pizza with mozzarella";
+    }
 }
