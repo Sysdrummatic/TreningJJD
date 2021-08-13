@@ -6,4 +6,8 @@ public class PizzaWithBasil extends PizzaWithTopping{
     public PizzaWithBasil(Pizza basePrice) {
         super(basePrice, BASIL_PRICE);
     }
+    @Override
+    public String toString() {
+        return "Pizza with mozzarella, ham and basil";
+    }
 }
