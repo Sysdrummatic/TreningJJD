@@ -9,6 +9,6 @@ public class Pizza {
         }
 
         public String toString() {
-            return "Pizza";
+            return "Pizza with no ingredients";
         }
 }
