@@ -8,7 +8,7 @@ public class Editor {
         this.events = new EventManager("open","save");
     }
 
-    public void openFiles(String filePath){
+    public void openFile(String filePath){
         this.file = new File(filePath);
         events.notify("open", file);
     }
