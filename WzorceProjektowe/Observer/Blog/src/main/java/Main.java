@@ -7,10 +7,10 @@ public class Main {
         Blog lukaszmichtaPL = new Blog();
         Reader webObserver = new Reader(lukaszmichtaPL);
         lukaszmichtaPL.subscribe(webObserver);
-        lukaszmichtaPL.publishArticle("Mega NewArticle1");
-        lukaszmichtaPL.publishArticle("Mega NewArticle2");
+        lukaszmichtaPL.publishArticle(new ArticleEvent("NewArticle1","Lukas Michtioni"));
+        lukaszmichtaPL.publishArticle(new ArticleEvent("NewArticle2","Alberto Pierdżordżi"));
         lukaszmichtaPL.unsubscribe(webObserver);
-        lukaszmichtaPL.publishArticle("Mega NewArticle3");
+        lukaszmichtaPL.publishArticle(new ArticleEvent("NewArticle2","Pierre Dzoncy"));
 
     }
 }
