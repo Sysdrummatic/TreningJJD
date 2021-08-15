@@ -1,6 +1,6 @@
 public class Reader implements Observer{
     private final Blog blog;
-    private String newestArticle;
+    private ArticleEvent newestArticle;
 
 
     public Reader(Blog blog) {
@@ -11,6 +11,7 @@ public class Reader implements Observer{
     @Override
     public void update() {
         newestArticle = blog.getNewArticle();
-        System.out.printf("An article „%s” was published!%n", newestArticle);
+        System.out.println("New article was published! Read immediately: " + newestArticle.getArticleName() + " by " + newestArticle.getArticleAuthor() + ". ");
+
     }
 }
