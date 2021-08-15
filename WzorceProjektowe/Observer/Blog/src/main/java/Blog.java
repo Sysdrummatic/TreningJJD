@@ -4,7 +4,7 @@ import java.util.Set;
 public class Blog implements Observable{
 
     private Set<Observer> observers = new HashSet<>();
-    private String newestArticle;
+    private ArticleEvent newestArticle;
 
     @Override
     public void subscribe(Observer observer) {
@@ -21,11 +21,11 @@ public class Blog implements Observable{
         observers.forEach(Observer::update);
     }
 
-    public String getNewArticle() {
+    public ArticleEvent getNewArticle() {
         return newestArticle;
     }
 
-    public void publishArticle(String article) {
+    public void publishArticle(ArticleEvent article) {
         newestArticle = article;
         notifyObservers();
     }
