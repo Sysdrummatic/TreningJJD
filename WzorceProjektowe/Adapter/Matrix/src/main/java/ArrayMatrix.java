@@ -1,4 +1,7 @@
 public class ArrayMatrix implements Matrix{
+
+    //Adapter implementation with compositions
+
     private final int[][] matrix;
 
     public ArrayMatrix(int[][] matrix) {
