@@ -1,5 +1,6 @@
 public class MatrixOperations {
     public static int largest(Matrix m){
+
         if (m.size() == 0){
             throw new IllegalArgumentException("Matrix is empty");
         }
