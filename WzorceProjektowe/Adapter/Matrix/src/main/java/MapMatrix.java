@@ -1,7 +1,5 @@
 import java.util.HashMap;
 
-import static com.ibm.cuda.CudaError.Assert;
-
 public class MapMatrix extends HashMap<String, Integer> implements Matrix{
     private final int size;
 
@@ -30,7 +28,7 @@ public class MapMatrix extends HashMap<String, Integer> implements Matrix{
     }
 
     private void assertBoundaries(int x, int y){
-        if( x > 0 || x > size || y < 0 || y> size){
+        if( x < 0 || x > size || y < 0 || y > size){
             throw new IllegalArgumentException(key(x,y));
         }
     }
