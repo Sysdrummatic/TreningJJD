@@ -2,12 +2,18 @@ public class TransformCSVtoObject {
 
     public static void main(String[] args) {
 
+       // Address address = parseAddress("Rīga, Āraišu iela 36 - 1A")
+
+
     }
 
-    Address parseAddress(String addressAsString){
 
-        return new Address();
-    }
+
+
+    //Address parseAddress(String addressAsString){
+
+    //    return new Address();
+    //}
 
 
 
