@@ -1,21 +1,21 @@
 public class Address {
 
+    private String administrativeArea;
     private String city;
     private String street;
     private String houseNumber;
-    private String buildingName;
-    private String cityArea;
+    private String houseName;
 /*
     public Address(){
     }
 */
-    public Address(String city, String street, String houseNumber, String buildingName, String cityArea) {
+    public Address(String administrativeArea, String city, String street, String houseNumber, String houseName) {
 
         this.city = city;
         this.street = street;
         this.houseNumber = houseNumber;
-        this.buildingName = buildingName;
-        this.cityArea = cityArea;
+        this.houseName = houseName;
+        this.administrativeArea = administrativeArea;
     }
 
     public String getCity() {
@@ -30,11 +30,11 @@ public class Address {
         return houseNumber;
     }
 
-    public String getBuildingName() {
-        return buildingName;
+    public String getHouseName() {
+        return houseName;
     }
 
-    public String getCityArea() {
-        return cityArea;
+    public String getAdministrativeArea() {
+        return administrativeArea;
     }
 }
