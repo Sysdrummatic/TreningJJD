@@ -6,12 +6,15 @@ public class TransformCVStoObjectTest {
     private Address objectFromGivenAddress1;
     private Address objectFromGivenAddress2;
     private Address objectFromGivenAddress3;
+    private Address objectFromGivenAddress4;
     private Address objectFromMethod1;
     private Address objectFromMethod2;
     private Address objectFromMethod3;
+    private Address objectFromMethod4;
     private String givenAddress1;
     private String givenAddress2;
     private String givenAddress3;
+    private String givenAddress4;
 
 
     @Before
@@ -19,12 +22,15 @@ public class TransformCVStoObjectTest {
         givenAddress1 = "Rīga, Āraišu iela 36 - 1A";
         givenAddress2 = "Jelgavas nov., Cenu pag., Brankas, Spartaka iela 9 - 13";
         givenAddress3 = "Dundagas nov., Kolkas pag., Kolka, \"Krastnieki\"";
+        givenAddress4 = "Tukuma nov., Tukums, Eksporta iela 8";
         objectFromGivenAddress1 = new Address(null, "Rīga","Āraišu iela","36 - 1A", null);
         objectFromGivenAddress2 = new Address("Jelgavas nov. Cenu pag.", "Brankas","Spartaka iela","9 - 13", null);
-        objectFromGivenAddress3 = new Address("Dundagas nov. Kolkas pag.", "Kolka",null,null, "Krastnieki");
-        objectFromMethod1 = TransformCSVtoObject.parseAddress(givenAddress1);
+        objectFromGivenAddress3 = new Address("Dundagas nov. Kolkas pag.", "Kolka",null,null, "\"Krastnieki\"");
+        objectFromGivenAddress4 = new Address("Tukuma nov.", "Tukums","Eksporta iela","8", null);
+        //objectFromMethod1 = TransformCSVtoObject.parseAddress(givenAddress1);
         objectFromMethod2 = TransformCSVtoObject.parseAddress(givenAddress2);
         objectFromMethod3 = TransformCSVtoObject.parseAddress(givenAddress3);
+       // objectFromMethod4 = TransformCSVtoObject.parseAddress(givenAddress4);
     //Riga
     }
     @Test
@@ -88,5 +94,26 @@ public class TransformCVStoObjectTest {
     @Test
     public void checkIfParseAddressBuildingNameIsCorrectForKolka(){
         Assert.assertEquals(objectFromGivenAddress3.getHouseName(), objectFromMethod3.getHouseName());
+    }
+    //Tukums
+    @Test
+    public void checkIfParseAddressAdministrativeAreaIsCorrectForTukums(){
+        Assert.assertEquals(objectFromGivenAddress4.getAdministrativeArea(), objectFromMethod4.getAdministrativeArea());
+    }
+    @Test
+    public void checkIfParseAddressCityIsCorrectForTukums(){
+        Assert.assertEquals(objectFromGivenAddress4.getCity(), objectFromMethod4.getCity());
+    }
+    @Test
+    public void checkIfParseAddressStreetIsCorrectForTukums(){
+        Assert.assertEquals(objectFromGivenAddress4.getStreet(), objectFromMethod4.getStreet());
+    }
+    @Test
+    public void checkIfParseAddressBuildingNoIsCorrectForTukums(){
+        Assert.assertEquals(objectFromGivenAddress4.getHouseNumber(), objectFromMethod4.getHouseNumber());
+    }
+    @Test
+    public void checkIfParseAddressBuildingNameIsCorrectForTukums(){
+        Assert.assertEquals(objectFromGivenAddress4.getHouseName(), objectFromMethod4.getHouseName());
     }
 }
