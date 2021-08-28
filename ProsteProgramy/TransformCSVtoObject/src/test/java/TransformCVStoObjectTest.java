@@ -1,21 +1,92 @@
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 public class TransformCVStoObjectTest {
-private Address address;
+    private Address objectFromGivenAddress1;
+    private Address objectFromGivenAddress2;
+    private Address objectFromGivenAddress3;
+    private Address objectFromMethod1;
+    private Address objectFromMethod2;
+    private Address objectFromMethod3;
+    private String givenAddress1;
+    private String givenAddress2;
+    private String givenAddress3;
+
 
     @Before
     public void dataSetUp(){
-        String givenAddress1 = "Rīga, Āraišu iela 36 - 1A";
-        String givenAddress2 = "Jelgavas nov., Cenu pag., Brankas, Spartaka iela 9 - 13";
-        String givenAddress3 = "Dundagas nov., Kolkas pag., Kolka, \"Krastnieki\"";
-        address = new Address(null, "Rīga","Āraišu iela","36 - 1A", null);
+        givenAddress1 = "Rīga, Āraišu iela 36 - 1A";
+        givenAddress2 = "Jelgavas nov., Cenu pag., Brankas, Spartaka iela 9 - 13";
+        givenAddress3 = "Dundagas nov., Kolkas pag., Kolka, \"Krastnieki\"";
+        objectFromGivenAddress1 = new Address(null, "Rīga","Āraišu iela","36 - 1A", null);
+        objectFromGivenAddress2 = new Address("Jelgavas nov. Cenu pag.", "Brankas","Spartaka iela","9 - 13", null);
+        objectFromGivenAddress3 = new Address("Dundagas nov. Kolkas pag.", "Kolka",null,null, "Krastnieki");
+        objectFromMethod1 = TransformCSVtoObject.parseAddress(givenAddress1);
+        objectFromMethod2 = TransformCSVtoObject.parseAddress(givenAddress2);
+        objectFromMethod3 = TransformCSVtoObject.parseAddress(givenAddress3);
+    //Riga
     }
-
     @Test
-    public void checkIfParseAddressCityIsCorrect(){
-
-
-        address.getCity();
+    public void checkIfParseAddressAdministrativeAreaIsCorrectForRiga(){
+        Assert.assertEquals(objectFromGivenAddress1.getAdministrativeArea(), objectFromMethod1.getAdministrativeArea());
+    }
+    @Test
+    public void checkIfParseAddressCityIsCorrectForRiga(){
+        Assert.assertEquals(objectFromGivenAddress1.getCity(), objectFromMethod1.getCity());
+    }
+    @Test
+    public void checkIfParseAddressStreetIsCorrectForRiga(){
+        Assert.assertEquals(objectFromGivenAddress1.getStreet(), objectFromMethod1.getStreet());
+    }
+    @Test
+    public void checkIfParseAddressBuildingNoIsCorrectForRiga(){
+        Assert.assertEquals(objectFromGivenAddress1.getHouseNumber(), objectFromMethod1.getHouseNumber());
+    }
+    @Test
+    public void checkIfParseAddressBuildingNameIsCorrectForRiga(){
+        Assert.assertEquals(objectFromGivenAddress1.getHouseName(), objectFromMethod1.getHouseName());
+    }
+    //Brankas
+    @Test
+    public void checkIfParseAddressAdministrativeAreaIsCorrectForBrankas(){
+        Assert.assertEquals(objectFromGivenAddress2.getAdministrativeArea(), objectFromMethod2.getAdministrativeArea());
+    }
+    @Test
+    public void checkIfParseAddressCityIsCorrectForBrankas(){
+        Assert.assertEquals(objectFromGivenAddress2.getCity(), objectFromMethod2.getCity());
+    }
+    @Test
+    public void checkIfParseAddressStreetIsCorrectForBrankas(){
+        Assert.assertEquals(objectFromGivenAddress2.getStreet(), objectFromMethod2.getStreet());
+    }
+    @Test
+    public void checkIfParseAddressBuildingNoIsCorrectForBrankas(){
+        Assert.assertEquals(objectFromGivenAddress2.getHouseNumber(), objectFromMethod2.getHouseNumber());
+    }
+    @Test
+    public void checkIfParseAddressBuildingNameIsCorrectForBrankas(){
+        Assert.assertEquals(objectFromGivenAddress2.getHouseName(), objectFromMethod2.getHouseName());
+    }
+    //Kolka
+    @Test
+    public void checkIfParseAddressAdministrativeAreaIsCorrectForKolka(){
+        Assert.assertEquals(objectFromGivenAddress3.getAdministrativeArea(), objectFromMethod3.getAdministrativeArea());
+    }
+    @Test
+    public void checkIfParseAddressCityIsCorrectForKolka(){
+        Assert.assertEquals(objectFromGivenAddress3.getCity(), objectFromMethod3.getCity());
+    }
+    @Test
+    public void checkIfParseAddressStreetIsCorrectForKolka(){
+        Assert.assertEquals(objectFromGivenAddress3.getStreet(), objectFromMethod3.getStreet());
+    }
+    @Test
+    public void checkIfParseAddressBuildingNoIsCorrectForKolka(){
+        Assert.assertEquals(objectFromGivenAddress3.getHouseNumber(), objectFromMethod3.getHouseNumber());
+    }
+    @Test
+    public void checkIfParseAddressBuildingNameIsCorrectForKolka(){
+        Assert.assertEquals(objectFromGivenAddress3.getHouseName(), objectFromMethod3.getHouseName());
     }
 }
