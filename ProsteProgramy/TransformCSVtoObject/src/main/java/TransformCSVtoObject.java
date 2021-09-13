@@ -3,69 +3,37 @@ import java.util.List;
 
 public class TransformCSVtoObject {
 
-
-
-    public static void main(String[] args) {
-
-        //String givenAddress1 = "Rīga, Āraišu iela 36 - 1A";
-        String givenAddress2 = "Jelgavas nov., Cenu pag., Brankas, Spartaka iela 9 - 13";
-        //String givenAddress3 = "Dundagas nov., Kolkas pag., Kolka, \"Krastnieki\"";
-        //String givenAddress4 = "Tukuma nov., Tukums, Eksporta iela 8";
-
-       Address address = parseAddress(givenAddress2);
-
-
-        System.out.println(address.getAdministrativeArea());
-        System.out.println(address.getCity());
-        System.out.println(address.getStreet());
-        System.out.println(address.getHouseNumber());
-        System.out.println(address.getHouseName());
-    }
-
      static Address parseAddress(String addressAsString){
 
         String firstPartOfAddress;
         String secondPartOfAddress;
         String thirdPartOfAddress;
         String fourthPartOfAddress;
-        String fifthPartOfAddress;
 
         List<String> splittedAddress = Arrays.asList(addressAsString.split(","));
-
-
-
-        String[] parts = addressAsString.split(",");
-
-        int addressListLength = splittedAddress.size();
 
          try{
              firstPartOfAddress = splittedAddress.get(0);
          } catch(IndexOutOfBoundsException e) {
-             firstPartOfAddress = null;
+             firstPartOfAddress = "";
          }
 
          try{
              secondPartOfAddress = splittedAddress.get(1);
          } catch(IndexOutOfBoundsException e) {
-             secondPartOfAddress = null;
+             secondPartOfAddress = "";
          }
 
          try{
              thirdPartOfAddress = splittedAddress.get(2);
          } catch(IndexOutOfBoundsException e) {
-             thirdPartOfAddress = null;
+             thirdPartOfAddress = "";
          }
 
          try{
              fourthPartOfAddress = splittedAddress.get(3);
          } catch(IndexOutOfBoundsException e) {
-             fourthPartOfAddress = null;
-         }
-
-         try{
-             fifthPartOfAddress = splittedAddress.get(4);
-         } catch(IndexOutOfBoundsException e) {
-             fifthPartOfAddress = null;
+             fourthPartOfAddress = "";
          }
 
         String administrativeArea = concatAdministrativeAreaIfExist(firstPartOfAddress,secondPartOfAddress);
@@ -78,20 +46,20 @@ public class TransformCSVtoObject {
     }
 
     public static String concatAdministrativeAreaIfExist(String firstPart, String secondPart){
-        String adminAreaConcated;
+        String adminAreaCombined;
         String keywordPag = "pag.";
         String keywordNov = "nov.";
-        Boolean foundPag = Arrays.asList(secondPart.split(" ")).contains(keywordPag);
-        Boolean foundNov = Arrays.asList(firstPart.split(" ")).contains(keywordNov);
+        boolean foundPag = Arrays.asList(secondPart.split(" ")).contains(keywordPag);
+        boolean foundNov = Arrays.asList(firstPart.split(" ")).contains(keywordNov);
         if(foundPag) {
-            adminAreaConcated = firstPart.concat(secondPart);
+            adminAreaCombined = firstPart.concat(secondPart);
         } else if(foundNov) {
 
-                adminAreaConcated = firstPart;
+                adminAreaCombined = firstPart;
             } else {
-            adminAreaConcated = null;
+            adminAreaCombined = "";
         }
-        return adminAreaConcated;
+        return adminAreaCombined;
     }
 
     public static String checkCityPositionInAddress(String firstPart, String secondPart, String thirdPart){
@@ -118,7 +86,7 @@ public class TransformCSVtoObject {
         Boolean foundPag = Arrays.asList(secondPart.split(" ")).contains(keywordPag);
         Boolean foundNov = Arrays.asList(firstPart.split(" ")).contains(keywordNov);
         if(fourthPart.endsWith("\"")){
-            street = null;
+            street = "";
         } else if(foundNov&&foundPag) {
             street = fourthPart.replaceAll("\\d","").replaceAll("-","").trim();
         } else if(foundNov) {
@@ -141,7 +109,7 @@ public class TransformCSVtoObject {
             } else {
                 number = thirdPart.trim();
             }
-        } else number = null;
+        } else number = "";
         return number;
     }
 
@@ -157,7 +125,7 @@ public class TransformCSVtoObject {
             } else {
                 name = thirdPart.trim();
             }
-        } else name = null;
+        } else name = "";
         return name;
     }
 }
