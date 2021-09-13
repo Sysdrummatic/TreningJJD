@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.List;
 
 public class TransformCSVtoObject {
 
@@ -6,10 +7,10 @@ public class TransformCSVtoObject {
 
     public static void main(String[] args) {
 
-        String givenAddress1 = "Rīga, Āraišu iela 36 - 1A";
+        //String givenAddress1 = "Rīga, Āraišu iela 36 - 1A";
         String givenAddress2 = "Jelgavas nov., Cenu pag., Brankas, Spartaka iela 9 - 13";
-        String givenAddress3 = "Dundagas nov., Kolkas pag., Kolka, \"Krastnieki\"";
-        String givenAddress4 = "Tukuma nov., Tukums, Eksporta iela 8";
+        //String givenAddress3 = "Dundagas nov., Kolkas pag., Kolka, \"Krastnieki\"";
+        //String givenAddress4 = "Tukuma nov., Tukums, Eksporta iela 8";
 
        Address address = parseAddress(givenAddress2);
 
@@ -23,17 +24,49 @@ public class TransformCSVtoObject {
 
      static Address parseAddress(String addressAsString){
 
+        String firstPartOfAddress;
+        String secondPartOfAddress;
+        String thirdPartOfAddress;
+        String fourthPartOfAddress;
+        String fifthPartOfAddress;
+
+        List<String> splittedAddress = Arrays.asList(addressAsString.split(","));
+
+
+
         String[] parts = addressAsString.split(",");
 
-        int addressPartsLength = parts.length;
+        int addressListLength = splittedAddress.size();
 
+         try{
+             firstPartOfAddress = splittedAddress.get(0);
+         } catch(IndexOutOfBoundsException e) {
+             firstPartOfAddress = null;
+         }
 
-            String firstPartOfAddress = parts[0];
-            String secondPartOfAddress = parts[1];
-            String thirdPartOfAddress = parts[2];
-            String fourthPartOfAddress = parts[3];
-        //String fifthPartOfAddress = parts[4];
+         try{
+             secondPartOfAddress = splittedAddress.get(1);
+         } catch(IndexOutOfBoundsException e) {
+             secondPartOfAddress = null;
+         }
 
+         try{
+             thirdPartOfAddress = splittedAddress.get(2);
+         } catch(IndexOutOfBoundsException e) {
+             thirdPartOfAddress = null;
+         }
+
+         try{
+             fourthPartOfAddress = splittedAddress.get(3);
+         } catch(IndexOutOfBoundsException e) {
+             fourthPartOfAddress = null;
+         }
+
+         try{
+             fifthPartOfAddress = splittedAddress.get(4);
+         } catch(IndexOutOfBoundsException e) {
+             fifthPartOfAddress = null;
+         }
 
         String administrativeArea = concatAdministrativeAreaIfExist(firstPartOfAddress,secondPartOfAddress);
         String city = checkCityPositionInAddress(firstPartOfAddress,secondPartOfAddress,thirdPartOfAddress);
