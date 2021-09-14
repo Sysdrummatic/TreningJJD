@@ -88,11 +88,14 @@ public class TransformCSVtoObject {
         if(fourthPart.endsWith("\"")){
             street = "";
         } else if(foundNov&&foundPag) {
-            street = fourthPart.replaceAll("\\d","").replaceAll("-","").trim();
+            String[] supportArray = fourthPart.split("\\d+",2);
+            street = supportArray[0].trim();
         } else if(foundNov) {
-            street = thirdPart.replaceAll("\\d","").replaceAll("-","").trim();
+            String[] supportArray = thirdPart.split("\\d+",2);
+            street = supportArray[0].trim();
         } else {
-            street = secondPart.replaceAll("\\d","").replaceAll("-","").trim();
+            String[] supportArray = secondPart.split("\\d+",2);
+            street = supportArray[0].trim();
         }
         return street;
     }
@@ -105,9 +108,17 @@ public class TransformCSVtoObject {
         Boolean foundNov = Arrays.asList(firstPart.split(" ")).contains(keywordNov);
         if(!firstPart.endsWith("\"")&&!secondPart.endsWith("\"")&&!thirdPart.endsWith("\"")&!fourthPart.endsWith("\"")) {
             if (foundNov && foundPag) {
-                number = fourthPart.trim();
+                String[] supportArray = fourthPart.split("\\d+", 2);
+                String supportString = supportArray[0].trim();
+                number = fourthPart.substring(supportString.length() + 1).trim();
+            } else if(foundNov){
+                String[] supportArray = thirdPart.split("\\d+", 2);
+                String supportString = supportArray[0].trim();
+                number = thirdPart.substring(supportString.length() + 1).trim();
             } else {
-                number = thirdPart.trim();
+                String[] supportArray = secondPart.split("\\d+", 2);
+                String supportString = supportArray[0].trim();
+                number = secondPart.substring(supportString.length() + 1).trim();
             }
         } else number = "";
         return number;
