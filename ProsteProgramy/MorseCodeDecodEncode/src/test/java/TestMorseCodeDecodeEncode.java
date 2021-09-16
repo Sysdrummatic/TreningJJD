@@ -1,11 +1,20 @@
+import org.junit.Assert;
 import org.junit.Test;
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.assertThat;
 
 public class TestMorseCodeDecodeEncode {
 
     @Test
-    public void testExampleFromDescription() {
-        assertThat(MorseCodeDecodeEncode.decode(".... . -.--   .--- ..- -.. ."), is("HEY JUDE"));
+    public void testIfMessageIsDecodedCorrect() {
+        Assert.assertEquals("hej jude",MorseCodeDecodeEncode.decode(".... . -.--   .--- ..- -.. ."));
+    }
+
+    @Test
+    public void testIfMessageIsEncodedCorrect() {
+        Assert.assertEquals(MorseCodeDecodeEncode.encode("HEY JUDE"), (".... . -.--   .--- ..- -.. ."));
+    }
+
+    @Test
+    public void testIfDataFromTablesCanBeReached() {
+        Assert.assertEquals('a',AlfaMorseTables.letters[1]);
     }
 }
