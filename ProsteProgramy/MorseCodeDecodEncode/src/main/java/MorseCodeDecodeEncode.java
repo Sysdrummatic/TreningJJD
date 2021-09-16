@@ -1,10 +1,28 @@
 public class MorseCodeDecodeEncode {
+
     public static String decode(String morseCode){
 
+        String morseCodeToTranslate = morseCode;
+        StringBuilder textAfterTranslation = new StringBuilder();
 
 
-        char[] letters = { ' ', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0' };
-        String[] morseLetters = { "    ", ". ___", "___ . . .", "___ . ___ .", "___ . .", ".", ". . ___ .", "___ ___ .", ". . . .", ". .", ". ___ ___ ___", "___ . ___", ". ___ . .",  "___ ___", "___ .", "___ ___ ___", ". ___ ___ .", "___ ___ . ___", ". ___ .", ". . .", "_", ". . ___", ". . . ___", ". ___ ___", "___ . . ___", "___ . ___ ___", "___ ___ . .", ". ___ ___ ___ ___", ". . ___ ___ ___", ". . . ___ ___", ". . . . ___", ". . . . .", "___ . . . .", "___ ___ . . .", "___ ___ ___ . .", "___ ___ ___ ___ .", "___ ___ ___ ___ ___"};
+
+        morseCodeToTranslate = morseCodeToTranslate.toLowerCase();
+
+        for (int i = 0; i < morseCodeToTranslate.length(); i++) {
+            for (short j = 0; j < 37; j++) {
+                if (morseCodeToTranslate.charAt(i) == AlfaMorseTables.letters[j]) {
+                    textAfterTranslation.append(AlfaMorseTables.morseLetters[j]);
+                    textAfterTranslation.append("   ");
+
+                    break;
+                }
+            }
+        }
+        return textAfterTranslation.toString();
+    }
+
+    public static String encode(String morseCode){
 
         return "";
     }
