@@ -1,24 +1,19 @@
+import java.util.Arrays;
+import java.util.List;
+
 public class MorseCodeDecodeEncode {
 
     public static String decode(String morseCode){
 
-        String morseCodeToTranslate = morseCode;
         StringBuilder textAfterTranslation = new StringBuilder();
+        List<String> splittedMorseCode = Arrays.asList(morseCode.split(" "));
 
-        morseCodeToTranslate = morseCodeToTranslate.toLowerCase();
-
-
-        char[] letters = { ' ', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0' };
-        String[] morseLetters = { "    ", ". ___", "___ . . .", "___ . ___ .", "___ . .", ".", ". . ___ .", "___ ___ .", ". . . .", ". .", ". ___ ___ ___", "___ . ___", ". ___ . .",  "___ ___", "___ .", "___ ___ ___", ". ___ ___ .", "___ ___ . ___", ". ___ .", ". . .", "_", ". . ___", ". . . ___", ". ___ ___", "___ . . ___", "___ . ___ ___", "___ ___ . .", ". ___ ___ ___ ___", ". . ___ ___ ___", ". . . ___ ___", ". . . . ___", ". . . . .", "___ . . . .", "___ ___ . . .", "___ ___ ___ . .", "___ ___ ___ ___ .", "___ ___ ___ ___ ___"};
-
-
-        for (int i = 0; i < morseCodeToTranslate.length(); i++) {
+        for (int i = 0; i < splittedMorseCode.size(); i++) {
             for (short j = 0; j < 37; j++) {
-                if (morseCodeToTranslate.charAt(i) == letters[j]) {
-                    textAfterTranslation.append(morseLetters[j]);
-                    textAfterTranslation.append("   ");
+                if (splittedMorseCode.get(i).equals(AlfaMorseTables.morseLetters[j])) {
+                    textAfterTranslation.append(AlfaMorseTables.letters[j]);
 
-
+                    break;
                 }
             }
         }
@@ -30,16 +25,13 @@ public class MorseCodeDecodeEncode {
         StringBuilder textAfterTranslation = new StringBuilder();
         textToEncode = textToEncode.toLowerCase();
 
-        char[] letters = { ' ', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0' };
-        String[] morseLetters = { " ", ".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..",  "--", "-.", "---", ".--.", "--.-", ".-.", "...", "_", "..-", "...-", ".--", "-..-", "-.--", "--..", ".----", "..---", "...--", "....-", ".....", "-....", "--...", "---..", "----.", "-----"};
-
         for (int i = 0; i < textToEncode.length(); i++)
         {
             for (short j = 0; j < 37; j++)
             {
-                if (textToEncode.charAt(i) == letters[j])
+                if (textToEncode.charAt(i) == AlfaMorseTables.letters[j])
                 {
-                    textAfterTranslation.append(morseLetters[j]);
+                    textAfterTranslation.append(AlfaMorseTables.morseLetters[j]);
                     if (i != textToEncode.length()-1)
                     {
                         textAfterTranslation.append(" ");
@@ -50,4 +42,10 @@ public class MorseCodeDecodeEncode {
         }
         return textAfterTranslation.toString();
     }
+}
+
+class AlfaMorseTables {
+
+    public static char[] letters = { ' ', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0' };
+    static String[] morseLetters = { " ", ".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..",  "--", "-.", "---", ".--.", "--.-", ".-.", "...", "_", "..-", "...-", ".--", "-..-", "-.--", "--..", ".----", "..---", "...--", "....-", ".....", "-....", "--...", "---..", "----.", "-----"};
 }
