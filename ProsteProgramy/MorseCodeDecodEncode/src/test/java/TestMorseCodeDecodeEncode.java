@@ -37,4 +37,13 @@ public class TestMorseCodeDecodeEncode {
         Assert.assertEquals("+", splittedMorseCode[3]);
     }
 
+    @Test
+    public void testIfListSizeIs2() {
+        String morseCode = ".... . -.--   .--- ..- -.. .";
+        morseCode = morseCode.replaceAll("   "," + ");
+        String[] splittedMorseCode = morseCode.split(" ");
+        //splittedMorseCode[3].matches("+"," ");
+
+        Assert.assertEquals("+", splittedMorseCode[3]);
+    }
 }
