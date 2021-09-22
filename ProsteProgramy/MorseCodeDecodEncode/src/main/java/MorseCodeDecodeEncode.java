@@ -1,18 +1,21 @@
-import java.util.Arrays;
-import java.util.List;
-
 public class MorseCodeDecodeEncode {
 
     public static String decode(String morseCode){
 
         StringBuilder textAfterTranslation = new StringBuilder();
-        List<String> splittedMorseCode = Arrays.asList(morseCode.split(" "));
+        morseCode = morseCode.replaceAll("   "," + ");
+        String[] splittedMorseCode = morseCode.split(" ");
 
-        for (int i = 0; i < splittedMorseCode.size(); i++) {
+        for (String splittedWithPlus : splittedMorseCode) {
+            if (splittedWithPlus.equals("+")) {
+                splittedWithPlus.replace("+", "   ");
+            }
+        }
+
+        for (String splitted : splittedMorseCode) {
             for (short j = 0; j < 37; j++) {
-                if (splittedMorseCode.get(i).equals(AlfaMorseTables.morseLetters[j])) {
+                if (splitted.equals(AlfaMorseTables.morseLetters[j])) {
                     textAfterTranslation.append(AlfaMorseTables.letters[j]);
-
                     break;
                 }
             }
