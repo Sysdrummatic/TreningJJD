@@ -4,11 +4,17 @@ public class MorseCodeDecodeEncode {
 
         StringBuilder textAfterTranslation = new StringBuilder();
         morseCode = morseCode.replaceAll("   "," + ");
+       // String[] separateWordsInMorseCode = morseCode.split("   ");
         String[] splittedMorseCode = morseCode.split(" ");
 
+
+
+
         for (String splittedWithPlus : splittedMorseCode) {
+
             if (splittedWithPlus.equals("+")) {
-                splittedWithPlus.replace("+", "   ");
+                //throw new IllegalArgumentException("JEST PLUS");
+                splittedWithPlus = splittedWithPlus.replace("+", "   ");
             }
         }
 
