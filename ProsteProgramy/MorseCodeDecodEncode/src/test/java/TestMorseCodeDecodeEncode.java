@@ -27,4 +27,14 @@ public class TestMorseCodeDecodeEncode {
         Assert.assertEquals(" ", splittedMorseCode.get(3));
     }
 
+    @Test
+    public void testIfPart4IsPlus() {
+        String morseCode = ".... . -.--   .--- ..- -.. .";
+        morseCode = morseCode.replaceAll("   "," + ");
+        String[] splittedMorseCode = morseCode.split(" ");
+        //splittedMorseCode[3].matches("+"," ");
+
+        Assert.assertEquals("+", splittedMorseCode[3]);
+    }
+
 }
