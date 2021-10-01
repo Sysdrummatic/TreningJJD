@@ -7,9 +7,7 @@ public class MorseCodeDecodeEncode {
        // String[] separateWordsInMorseCode = morseCode.split("   ");
         String[] splittedMorseCode = morseCode.split(" ");
 
-
-
-
+        
         for (String splittedWithPlus : splittedMorseCode) {
 
             if (splittedWithPlus.equals("+")) {
