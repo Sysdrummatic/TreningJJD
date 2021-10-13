@@ -2,6 +2,7 @@ public class MorseCodeDecodeEncode {
 
     public static String decode(String morseCode){
 
+        String newSplitted;
         StringBuilder textAfterTranslation = new StringBuilder();
         morseCode = morseCode.replaceAll("   "," + ");
        // String[] separateWordsInMorseCode = morseCode.split("   ");
@@ -12,7 +13,7 @@ public class MorseCodeDecodeEncode {
 
             if (splittedWithPlus.equals("+")) {
                 //throw new IllegalArgumentException("JEST PLUS");
-                splittedWithPlus = splittedWithPlus.replace("+", "   ");
+                newSplitted = splittedWithPlus.replace("+", "   ");
             }
         }
 

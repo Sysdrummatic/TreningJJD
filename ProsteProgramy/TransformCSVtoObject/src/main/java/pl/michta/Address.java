@@ -1,3 +1,5 @@
+package pl.michta;
+
 public class Address {
 
     private String administrativeArea;
@@ -6,7 +8,7 @@ public class Address {
     private String houseNumber;
     private String houseName;
 /*
-    public Address(){
+    public pl.michta.Address(){
     }
 */
     public Address(String administrativeArea, String city, String street, String houseNumber, String houseName) {
