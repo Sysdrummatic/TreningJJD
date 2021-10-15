@@ -2,15 +2,12 @@ package pl.michta;
 
 public class Address {
 
-    private String administrativeArea;
-    private String city;
-    private String street;
-    private String houseNumber;
-    private String houseName;
-/*
-    public pl.michta.Address(){
-    }
-*/
+    private final String administrativeArea;
+    private final String city;
+    private final String street;
+    private final String houseNumber;
+    private final String houseName;
+
     public Address(String administrativeArea, String city, String street, String houseNumber, String houseName) {
 
         this.city = city;
