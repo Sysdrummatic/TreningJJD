@@ -1,7 +1,6 @@
 package pl.michta;
 import org.junit.Assert;
 import org.junit.Test;
-import pl.michta.TransformCSVtoObject;
 
 public class TransformCVStoObjectTest {
 
