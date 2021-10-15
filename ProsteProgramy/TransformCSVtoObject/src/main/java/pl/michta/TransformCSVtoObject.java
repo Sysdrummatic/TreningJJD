@@ -5,10 +5,10 @@ import java.util.List;
 
 public class TransformCSVtoObject {
 
-    public static final String NOV = "nov.";
+    public static final String NOV = "nov."; //Powstałe na skutek //alt crtl c
+    public static final String PAG = "pag.";
 
     static Address parseAddress(String addressAsString) {
-
 
         List<String> splittedAddress = Arrays.asList(addressAsString.split(","));
 
@@ -39,12 +39,9 @@ public class TransformCSVtoObject {
 
     private static String concatAdministrativeAreaIfExist(String firstPart, String secondPart) {
         String adminAreaCombined;
-        String keywordPag = "pag."; //alt crtl c
-        boolean foundPag = Arrays.asList(secondPart.split(" ")).contains(keywordPag);
-        if (foundPag) {
+        if (secondPart.contains(PAG)) {
             adminAreaCombined = firstPart.concat(secondPart);
         } else if (firstPart.contains(NOV)) {
-
             adminAreaCombined = firstPart;
         } else {
             adminAreaCombined = null;
@@ -54,13 +51,9 @@ public class TransformCSVtoObject {
 
     private static String checkCityPositionInAddress(String firstPart, String secondPart, String thirdPart) {
         String city;
-        String keywordPag = "pag.";
-        Boolean foundPag = Arrays.asList(secondPart.split(" ")).contains(keywordPag);
-        Boolean foundNov = Arrays.asList(firstPart.split(" ")).contains(NOV);
-        if (foundNov && foundPag) {
+        if (firstPart.contains(NOV) && secondPart.contains(PAG)) {
             city = thirdPart;
-        } else if (foundNov) {
-
+        } else if (firstPart.contains(NOV)) {
             city = secondPart;
         } else {
             city = firstPart;
@@ -68,44 +61,42 @@ public class TransformCSVtoObject {
         return city.trim();
     }
 
+    private static String extractStreetBuilder(String extractStreet) {
+        String[] supportArray = extractStreet.split("\\d+", 2);
+        extractStreet = supportArray[0].trim();
+        return extractStreet;
+    }
+
     private static String extractStreetNameFromAddress(String firstPart, String secondPart, String thirdPart, String fourthPart) {
         String street;
-        String keywordPag = "pag.";
-        Boolean foundPag = Arrays.asList(secondPart.split(" ")).contains(keywordPag);
-        Boolean foundNov = Arrays.asList(firstPart.split(" ")).contains(NOV);
         if (fourthPart.endsWith("\"")) {
             street = null;
-        } else if (foundNov && foundPag) {
-            String[] supportArray = fourthPart.split("\\d+", 2);
-            street = supportArray[0].trim();
-        } else if (foundNov) {
-            String[] supportArray = thirdPart.split("\\d+", 2);
-            street = supportArray[0].trim();
+        } else if (firstPart.contains(NOV) && secondPart.contains(PAG)) {
+            street = extractStreetBuilder(fourthPart);
+        } else if (firstPart.contains(NOV)) {
+            street = extractStreetBuilder(thirdPart);
         } else {
-            String[] supportArray = secondPart.split("\\d+", 2);
-            street = supportArray[0].trim();
+            street = extractStreetBuilder(secondPart);
         }
         return street;
     }
 
+    private static String extractBuildingNameBuilder(String extractBuildingName) {
+        String[] supportArray = extractBuildingName.split("\\d+", 2);
+        String supportString = supportArray[0].trim();
+        extractBuildingName = extractBuildingName.substring(supportString.length() + 1).trim();
+        return extractBuildingName;
+    }
+
     private static String extractBuildingNumberFromAddress(String firstPart, String secondPart, String thirdPart, String fourthPart) {
         String number = null;
-        String keywordPag = "pag.";
-        Boolean foundPag = Arrays.asList(secondPart.split(" ")).contains(keywordPag);
-        Boolean foundNov = Arrays.asList(firstPart.split(" ")).contains(NOV);
         if (!firstPart.endsWith("\"") && !secondPart.endsWith("\"") && !thirdPart.endsWith("\"") & !fourthPart.endsWith("\"")) {
-            if (foundNov && foundPag) {
-                String[] supportArray = fourthPart.split("\\d+", 2);
-                String supportString = supportArray[0].trim();
-                number = fourthPart.substring(supportString.length() + 1).trim();
-            } else if (foundNov) {
-                String[] supportArray = thirdPart.split("\\d+", 2);
-                String supportString = supportArray[0].trim();
-                number = thirdPart.substring(supportString.length() + 1).trim();
+            if (firstPart.contains(NOV) && secondPart.contains(PAG)) {
+                number = extractBuildingNameBuilder(fourthPart);
+            } else if (firstPart.contains(NOV)) {
+                number = extractBuildingNameBuilder(thirdPart);
             } else {
-                String[] supportArray = secondPart.split("\\d+", 2);
-                String supportString = supportArray[0].trim();
-                number = secondPart.substring(supportString.length() + 1).trim();
+                number = extractBuildingNameBuilder(secondPart);
             }
         }
         return number;
@@ -113,11 +104,8 @@ public class TransformCSVtoObject {
 
     private static String checkBuildingName(String firstPart, String secondPart, String thirdPart, String fourthPart) {
         String name = null;
-        String keywordPag = "pag.";
-        Boolean foundPag = Arrays.asList(secondPart.split(" ")).contains(keywordPag);
-        Boolean foundNov = Arrays.asList(firstPart.split(" ")).contains(NOV);
         if (firstPart.endsWith("\"") || secondPart.endsWith("\"") || thirdPart.endsWith("\"") || fourthPart.endsWith("\"")) {
-            if (foundNov && foundPag) {
+            if (firstPart.contains(NOV) && secondPart.contains(PAG)) {
                 name = fourthPart.trim();
             } else {
                 name = thirdPart.trim();
