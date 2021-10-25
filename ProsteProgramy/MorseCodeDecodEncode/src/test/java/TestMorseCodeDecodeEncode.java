@@ -1,25 +1,44 @@
 import org.junit.Assert;
 import org.junit.Test;
-
 import java.util.Arrays;
 import java.util.List;
-
 
 public class TestMorseCodeDecodeEncode {
 
     @Test
-    public void testIfMessageIsDecodedCorrect() {
-        Assert.assertEquals("hey jude",MorseCodeDecodeEncode.decode(".... . -.--   .--- ..- -.. ."));
+    public void shouldTranslateMorseCodeToText() {
+
+        //Given
+        String morseCodeExample = ".... . -.--   .--- ..- -.. .";
+
+        //When
+        var textToDecode = MorseCodeDecodeEncode.decode(morseCodeExample);
+
+        //Then
+        Assert.assertEquals("hey jude", textToDecode);
     }
 
     @Test
-    public void testIfMessageIsEncodedCorrect() {
+    public void shouldTranslateTextToMorseCode() {
 
-        Assert.assertEquals(".... . -.--   .--- ..- -.. .", MorseCodeDecodeEncode.encode("HEY JUDE"));
+        //Given
+        String textToEncode = "HEY JUDE";
+
+        //When
+        var encodedText = MorseCodeDecodeEncode.encode(textToEncode);
+
+        //Then
+        Assert.assertEquals(".... . -.--   .--- ..- -.. .", encodedText);
     }
 
     @Test
     public void testIfListIsOK() {
+        //Given
+
+        //When
+
+        //Then
+
         String morseCode = ".... . -.--   .--- ..- -.. .";
         List<String> splittedMorseCode = Arrays.asList(morseCode.split(" "));
 
@@ -29,8 +48,14 @@ public class TestMorseCodeDecodeEncode {
 
     @Test
     public void testIfPart4IsPlus() {
+        //Given
+
+        //When
+
+        //Then
+
         String morseCode = ".... . -.--   .--- ..- -.. .";
-        morseCode = morseCode.replaceAll("   "," + ");
+        morseCode = morseCode.replaceAll("   ", " + ");
         String[] splittedMorseCode = morseCode.split(" ");
         //splittedMorseCode[3].matches("+"," ");
 
@@ -39,8 +64,14 @@ public class TestMorseCodeDecodeEncode {
 
     @Test
     public void testIfListSizeIs2() {
+        //Given
+
+        //When
+
+        //Then
+
         String morseCode = ".... . -.--   .--- ..- -.. .";
-        morseCode = morseCode.replaceAll("   "," + ");
+        morseCode = morseCode.replaceAll("   ", " + ");
         String[] splittedMorseCode = morseCode.split(" ");
         //splittedMorseCode[3].matches("+"," ");
 
